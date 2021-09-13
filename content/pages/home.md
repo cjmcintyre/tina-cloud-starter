@@ -1,7 +1,7 @@
 ---
 blocks:
   - tagline: ''
-    headline: Ok so it edits in real time.. I guess thats good.
+    headline: Ok so it edits in real time.. I guess thats good.... or it doesnt?
     text: >
       This project is set up to show you the basics of working with Tina. You're
       looking at the landing page, which pulls content from
