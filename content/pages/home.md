@@ -39,9 +39,9 @@ blocks:
         title: This Is a Feature
         text: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.
       - icon:
-          color: green
-          style: float
-          name: palette
+          color: orange
+          style: circle
+          name: aperture
         title: Configurable Theme
         text: >-
           Edit global theme configuration with Tina. Change your theme's primary
