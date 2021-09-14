@@ -5,7 +5,7 @@ blocks:
     text: >-
       Phasellus scelerisque, libero eu finibus rutrum, risus risus accumsan
       libero, nec molestie urna dui a leo.
-    color: primary
+    color: default
     _template: hero
   - items:
       - icon:
