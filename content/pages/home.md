@@ -24,6 +24,11 @@ blocks:
         link: /
     color: default
     _template: hero
+  - body: >-
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
+      Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse
+      urna nibh, viverra non, semper suscipit, posuere a, pede.
+    _template: content
   - items:
       - icon:
           color: red
@@ -47,7 +52,13 @@ blocks:
         text: >-
           Edit global theme configuration with Tina. Change your theme's primary
           color, font, or icon set.
-    color: tint
+    color: primary
     _template: features
+  - quote: >-
+      There are only two hard things in Computer Science: cache invalidation and
+      naming things.
+    author: Phil Karlton
+    color: primary
+    _template: testimonial
 ---
 
