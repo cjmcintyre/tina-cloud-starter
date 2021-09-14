@@ -1,11 +1,11 @@
 {
   "header": {
     "icon": {
-      "color": "primary",
+      "color": "pink",
       "style": "float",
       "name": "tina"
     },
-    "color": "primary",
+    "color": "default",
     "nav": [
       {
         "href": "",
