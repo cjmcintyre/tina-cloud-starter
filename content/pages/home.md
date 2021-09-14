@@ -11,7 +11,7 @@ blocks:
         icon: true
         link: /
       - label: Action Label
-        type: link
+        type: button
         icon: true
         link: /
       - label: Action Label
