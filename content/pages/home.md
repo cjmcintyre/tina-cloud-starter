@@ -39,7 +39,7 @@ blocks:
         title: This Is a Feature
         text: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.
       - icon:
-          color: orange
+          color: primary
           style: circle
           name: aperture
         title: Configurable Theme
