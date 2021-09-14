@@ -5,6 +5,23 @@ blocks:
     text: >-
       Phasellus scelerisque, libero eu finibus rutrum, risus risus accumsan
       libero, nec molestie urna dui a leo.
+    actions:
+      - label: Action Label
+        type: button
+        icon: true
+        link: /
+      - label: Action Label
+        type: link
+        icon: true
+        link: /
+      - label: Action Label
+        type: button
+        icon: true
+        link: /
+      - label: Action Label
+        type: button
+        icon: true
+        link: /
     color: default
     _template: hero
   - items:
