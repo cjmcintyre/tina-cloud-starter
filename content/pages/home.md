@@ -10,17 +10,9 @@ blocks:
         type: button
         icon: true
         link: /
-      - label: Action Label
-        type: button
-        icon: true
-        link: /
-      - label: Action Label
-        type: button
-        icon: true
-        link: /
-      - label: Action Label
-        type: button
-        icon: true
+      - label: Another Link
+        type: link
+        icon: false
         link: /
     color: default
     _template: hero
