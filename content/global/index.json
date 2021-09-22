@@ -30,7 +30,7 @@
     }
   },
   "theme": {
-    "color": "green",
+    "color": "purple",
     "font": "sans",
     "icon": "boxicon",
     "darkMode": "system"
