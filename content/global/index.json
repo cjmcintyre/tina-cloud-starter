@@ -5,7 +5,7 @@
       "style": "float",
       "name": "map"
     },
-    "color": "primary",
+    "color": "default",
     "nav": [
       {
         "href": "",
