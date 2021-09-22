@@ -274,9 +274,43 @@ const testimonialBlockSchema: TinaTemplate = {
       label: "Color",
       name: "color",
       options: [
-        { label: "Default", value: "default" },
-        { label: "Tint", value: "tint" },
-        { label: "Primary", value: "primary" },
+        {
+          label: "Primary",
+          value: "primary",
+        },
+        {
+          label: "Blue",
+          value: "blue",
+        },
+        {
+          label: "Teal",
+          value: "teal",
+        },
+        {
+          label: "Green",
+          value: "green",
+        },
+        {
+          label: "Red",
+          value: "red",
+        },
+        {
+          label: "Pink",
+          value: "pink",
+        },
+        {
+          label: "Purple",
+          value: "purple",
+        },
+        {
+          label: "Orange",
+          value: "orange",
+        },
+        {
+          label: "Yellow",
+          value: "yellow",
+        },
+
       ],
     },
   ],
