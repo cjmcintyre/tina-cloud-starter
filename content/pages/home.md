@@ -48,7 +48,7 @@ blocks:
         text: >-
           Edit global theme configuration with Tina. Change your theme's primary
           color, font, or icon set.
-    color: default
+    color: tint
     _template: features
   - quote: >-
       There are only two hard things in Computer Science: cache invalidation and
