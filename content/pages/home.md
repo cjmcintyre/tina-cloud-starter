@@ -1,5 +1,9 @@
 ---
 blocks:
+  - quote: This should have so many colors but it doesnt
+    author: Phil Karlton
+    color: default
+    _template: testimonial
   - tagline: Here's some text above the other text
     headline: This Big Text is Totally Awesome
     text: >-
