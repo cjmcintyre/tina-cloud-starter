@@ -1,5 +1,9 @@
 ---
 blocks:
+  - quote: This should have so many colors but it doesnt
+    author: Phil Karlton
+    color: default
+    _template: testimonial
   - tagline: Here's some text above the other text
     headline: This Big Text is Totally Awesome
     text: >-
@@ -20,6 +24,7 @@ blocks:
       Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
       Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse
       urna nibh, viverra non, semper suscipit, posuere a, pede.
+    color: ''
     _template: content
   - items:
       - icon:
@@ -44,13 +49,13 @@ blocks:
         text: >-
           Edit global theme configuration with Tina. Change your theme's primary
           color, font, or icon set.
-    color: primary
+    color: tint
     _template: features
   - quote: >-
       There are only two hard things in Computer Science: cache invalidation and
       naming things.
     author: Phil Karlton
-    color: default
+    color: ''
     _template: testimonial
 ---
 

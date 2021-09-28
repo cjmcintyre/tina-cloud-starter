@@ -1,11 +1,11 @@
 {
   "header": {
     "icon": {
-      "color": "pink",
+      "color": "blue",
       "style": "float",
-      "name": "tina"
+      "name": "map"
     },
-    "color": "primary",
+    "color": "default",
     "nav": [
       {
         "href": "",
@@ -30,7 +30,7 @@
     }
   },
   "theme": {
-    "color": "green",
+    "color": "blue",
     "font": "sans",
     "icon": "boxicon",
     "darkMode": "system"
