@@ -5,7 +5,7 @@ import { Features } from "./blocks/features";
 import { Hero } from "./blocks/hero";
 import { Testimonial } from "./blocks/testimonial";
 import { Images }  from "./blocks/images";
-import { ContactUs } from "./blocks/contactUs";
+import { ContactUs } from "./blocks/ContactUs";
 
 export const Blocks = (props: Pages) => {
   return (
