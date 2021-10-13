@@ -28,7 +28,7 @@ export const Testimonial = ({ data }) => {
             }`}
           >
             <span
-              className={`block opacity-15 text-8xl absolute inset-y-1/2 transform translate-y-2	-left-4 leading-4 -z-1`}
+              className={`block opacity-15 text-5xl absolute inset-y-1/3 transform translate-y-1	-left-4 leading-4 -z-1`}
             >
               &ldquo;
             </span>
@@ -44,7 +44,7 @@ export const Testimonial = ({ data }) => {
               </span>
             </p>
             <span
-              className={`block opacity-15 text-8xl absolute inset-y-1/2 transform translate-y-3	-right-4 leading-4 -z-1`}
+              className={`block opacity-15 text-6xl absolute inset-y-1/3 transform translate-y-3	-right-4 leading-4 -z-1`}
             >
               &rdquo;
             </span>
