@@ -58,6 +58,26 @@ export const getStaticProps = async ({ params }) => {
                   alt
                 }
               }
+              ... on PagesBlocksImages {
+                items {
+                  imageTitle
+                  image {
+                    src
+                    alt
+                  }
+                  text
+                }
+                color
+              }
+              ... on PagesBlocksContactUs {
+                headline
+                body
+                color
+                image {
+                  src
+                  alt
+                }
+              }
             }
           }
         }
