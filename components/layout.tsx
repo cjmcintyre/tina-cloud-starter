@@ -31,32 +31,21 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
                 },
                 "revokable" : true,
                 revokeBtn: `<div class="cc-revoke cc-bottom cc-animate cc-color-override-782958852">🍪 Cookie policy</div>`,
-                 onInitialise: function(status) {
-                  var type = this.options.type;
-                  var didConsent = this.hasConsented();
-
-                  if (type == 'opt-in' && didConsent) {
-                    setCookies()
-                  // enable cookies
-                  }
-                  if (type == 'opt-out' && !didConsent) {
-                    deleteCookies(this.options.cookie.name);
-                  // disable cookies
-                  }
-                }, 
                 onStatusChange: function(status) {
                 this.hasConsented() ? setCookies() : deleteCookies(this.options.cookie.name);
                 },
                 onRevokeChoice: function() {
                   var type = this.options.type;
-                  type == "opt-in" ? deleteCookies(this.options.cookie.name) : setCookies();
+                  if (type == "opt-in") {
+                    deleteCookies(this.options.cookie.name)
+                  } 
                 },
                 law: {
                 regionalLaw: false,
                 },
-                "dismissOnScroll": 200,
-                "dismissOnTimeout": 15000,
-                "dismissOnWindowClick": true,
+                dismissOnScroll: 200,
+                dismissOnTimeout: 30000,
+                dismissOnWindowClick: true,
               });
             
   }, []);
@@ -97,7 +86,7 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
       <Head>
         <title>Tina</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        
+
         {data.theme.font === "nunito" && (
           <>
             <link rel="preconnect" href="https://fonts.googleapis.com" />
