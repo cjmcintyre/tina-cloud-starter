@@ -5,6 +5,10 @@ import { Footer } from "./footer";
 import layoutData from "../content/global/index.json";
 import { Theme } from "./theme";
 
+declare global {
+  interface Window { cookieconsent: any; }
+}
+
 export const Layout = ({ rawData = "", data = layoutData, children }) => {
 
    useEffect(() => {
