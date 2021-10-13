@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.cc-revoke, .cc-window {
+    font-family: inherit;
+}
