@@ -486,6 +486,18 @@
                 {
                   "label": "Lato",
                   "value": "lato"
+                },
+                {
+                  "label": "Mono",
+                  "value": "mono"
+                },
+                {
+                  "label": "Mont",
+                  "value": "mont"
+                },
+                {
+                  "label": "Roboto Slab",
+                  "value": "robotoSlab"
                 }
               ],
               "namespace": [
@@ -1210,6 +1222,260 @@
                 "pages",
                 "blocks",
                 "testimonial"
+              ]
+            },
+            {
+              "name": "images",
+              "label": "Images",
+              "ui": {
+                "defaultItem": {
+                  "items": [
+                    {
+                      "imageTitle": "Headline",
+                      "image": {
+                        "src": "http://res.cloudinary.com/dyfo8zpbd/image/upload/v1632813018/Web_design_SVG_xbmjy9.svg",
+                        "alt": "default image"
+                      }
+                    },
+                    {
+                      "imageTitle": "Headline",
+                      "image": {
+                        "src": "http://res.cloudinary.com/dyfo8zpbd/image/upload/v1632813018/Web_design_SVG_xbmjy9.svg",
+                        "alt": "default image"
+                      }
+                    },
+                    {
+                      "imageTitle": "Headline",
+                      "image": {
+                        "src": "http://res.cloudinary.com/dyfo8zpbd/image/upload/v1632813018/Web_design_SVG_xbmjy9.svg",
+                        "alt": "default image"
+                      }
+                    }
+                  ],
+                  "color": "Primary"
+                }
+              },
+              "fields": [
+                {
+                  "type": "object",
+                  "label": "Image Items",
+                  "name": "items",
+                  "list": true,
+                  "ui": {
+                    "defaultItem": {
+                      "imageTitle": "Headline",
+                      "image": {
+                        "src": "http://res.cloudinary.com/dyfo8zpbd/image/upload/v1632813018/Web_design_SVG_xbmjy9.svg",
+                        "alt": "default image"
+                      }
+                    }
+                  },
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "Image Title",
+                      "name": "imageTitle",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "images",
+                        "items",
+                        "imageTitle"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "label": "Image",
+                      "name": "image",
+                      "fields": [
+                        {
+                          "name": "src",
+                          "label": "Image Source",
+                          "type": "image",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "images",
+                            "items",
+                            "image",
+                            "src"
+                          ]
+                        },
+                        {
+                          "name": "alt",
+                          "label": "Alt Text",
+                          "type": "string",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "images",
+                            "items",
+                            "image",
+                            "alt"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "images",
+                        "items",
+                        "image"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Text",
+                      "name": "text",
+                      "ui": {
+                        "component": "markdown"
+                      },
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "images",
+                        "items",
+                        "text"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "images",
+                    "items"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "label": "Color",
+                  "name": "color",
+                  "options": [
+                    {
+                      "label": "Default",
+                      "value": "default"
+                    },
+                    {
+                      "label": "Tint",
+                      "value": "tint"
+                    },
+                    {
+                      "label": "Primary",
+                      "value": "primary"
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "images",
+                    "color"
+                  ]
+                }
+              ],
+              "namespace": [
+                "pages",
+                "blocks",
+                "images"
+              ]
+            },
+            {
+              "name": "contactUs",
+              "label": "Contact Us",
+              "ui": {
+                "defaultItem": {
+                  "body": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede."
+                }
+              },
+              "fields": [
+                {
+                  "type": "string",
+                  "label": "Headline",
+                  "name": "headline",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "contactUs",
+                    "headline"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "label": "Body",
+                  "name": "body",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "contactUs",
+                    "body"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "label": "Color",
+                  "name": "color",
+                  "options": [
+                    {
+                      "label": "Default",
+                      "value": "default"
+                    },
+                    {
+                      "label": "Tint",
+                      "value": "tint"
+                    },
+                    {
+                      "label": "Primary",
+                      "value": "primary"
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "contactUs",
+                    "color"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "label": "Image",
+                  "name": "image",
+                  "fields": [
+                    {
+                      "name": "src",
+                      "label": "Image Source",
+                      "type": "image",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "contactUs",
+                        "image",
+                        "src"
+                      ]
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Alt Text",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "contactUs",
+                        "image",
+                        "alt"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "contactUs",
+                    "image"
+                  ]
+                }
+              ],
+              "namespace": [
+                "pages",
+                "blocks",
+                "contactUs"
               ]
             }
           ],

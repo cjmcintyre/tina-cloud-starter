@@ -92,7 +92,9 @@
       "hero": "PagesBlocksHero",
       "features": "PagesBlocksFeatures",
       "content": "PagesBlocksContent",
-      "testimonial": "PagesBlocksTestimonial"
+      "testimonial": "PagesBlocksTestimonial",
+      "images": "PagesBlocksImages",
+      "contactUs": "PagesBlocksContactUs"
     }
   },
   "GlobalDocument": {
