@@ -10,7 +10,7 @@ export const Container = ({ children, size = "medium", className = "" }) => {
 
   return (
     <div
-      className={`max-w-7xl mx-auto px-6 sm:px-8 ${verticalPadding[size]} ${className}`}
+      className={`max-w-7xl mx-auto px-4 sm:px-8 ${verticalPadding[size]} ${className}`}
     >
       {children}
     </div>
