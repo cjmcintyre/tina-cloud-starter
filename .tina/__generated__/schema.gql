@@ -263,19 +263,19 @@ type PagesBlocksImages {
   color: String
 }
 
-type PagesBlocksContactUsImage {
+type PagesBlocksContactImage {
   src: String
   alt: String
 }
 
-type PagesBlocksContactUs {
+type PagesBlocksContact {
   headline: String
   body: String
   color: String
-  image: PagesBlocksContactUsImage
+  image: PagesBlocksContactImage
 }
 
-union PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksContent | PagesBlocksTestimonial | PagesBlocksImages | PagesBlocksContactUs
+union PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksContent | PagesBlocksTestimonial | PagesBlocksImages | PagesBlocksContact
 
 type Pages {
   blocks: [PagesBlocks]
@@ -438,16 +438,16 @@ input PagesBlocksImagesMutation {
   color: String
 }
 
-input PagesBlocksContactUsImageMutation {
+input PagesBlocksContactImageMutation {
   src: String
   alt: String
 }
 
-input PagesBlocksContactUsMutation {
+input PagesBlocksContactMutation {
   headline: String
   body: String
   color: String
-  image: PagesBlocksContactUsImageMutation
+  image: PagesBlocksContactImageMutation
 }
 
 input PagesBlocksMutation {
@@ -456,7 +456,7 @@ input PagesBlocksMutation {
   content: PagesBlocksContentMutation
   testimonial: PagesBlocksTestimonialMutation
   images: PagesBlocksImagesMutation
-  contactUs: PagesBlocksContactUsMutation
+  contact: PagesBlocksContactMutation
 }
 
 input PagesMutation {

@@ -69,7 +69,7 @@ export const getStaticProps = async ({ params }) => {
                 }
                 color
               }
-              ... on PagesBlocksContactUs {
+              ... on PagesBlocksContact {
                 headline
                 body
                 color

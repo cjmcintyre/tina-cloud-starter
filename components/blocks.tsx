@@ -5,7 +5,7 @@ import { Features } from "./blocks/features";
 import { Hero } from "./blocks/hero";
 import { Testimonial } from "./blocks/testimonial";
 import { Images }  from "./blocks/images";
-import { ContactUs } from "./blocks/ContactUs";
+import { Contact } from "./blocks/contact";
 
 export const Blocks = (props: Pages) => {
   return (
@@ -43,10 +43,10 @@ export const Blocks = (props: Pages) => {
                     <Images data={block} />
                   </React.Fragment>
                 );
-              case "PagesBlocksContactUs":
+              case "PagesBlocksContact":
                 return (
                   <React.Fragment key={i + block.__typename}>
-                    <ContactUs data={block} />
+                    <Contact data={block} />
                   </React.Fragment>
                 )
               default:

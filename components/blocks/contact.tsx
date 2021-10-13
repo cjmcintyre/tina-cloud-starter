@@ -3,7 +3,7 @@ import ContactForm from "./ContactForm";
 import { Container } from "../container";
 import { Section } from "../section";
 
-export const ContactUs = ({ data }) => {
+export const Contact = ({ data }) => {
   return (
     <Section color={data.color}>
       <Container

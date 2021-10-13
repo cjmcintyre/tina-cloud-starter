@@ -60,7 +60,7 @@
       "content": "PagesBlocksContent",
       "testimonial": "PagesBlocksTestimonial",
       "images": "PagesBlocksImages",
-      "contactUs": "PagesBlocksContactUs"
+      "contact": "PagesBlocksContact"
     }
   },
   "PagesDocument": {

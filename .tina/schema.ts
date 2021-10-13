@@ -317,8 +317,8 @@ const contentBlockSchema: TinaTemplate = {
 };
 
 
-const contactUsBlockSchema: TinaTemplate = {
-  name: "contactUs",
+const contactBlockSchema: TinaTemplate = {
+  name: "contact",
   label: "Contact Us",
   ui: {
     defaultItem: {
@@ -789,7 +789,7 @@ export default defineSchema({
             contentBlockSchema,
             testimonialBlockSchema,
             imageBlockSchema,
-            contactUsBlockSchema,
+            contactBlockSchema,
           ],
         },
       ],

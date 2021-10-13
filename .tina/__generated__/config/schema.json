@@ -988,7 +988,7 @@
               ]
             },
             {
-              "name": "contactUs",
+              "name": "contact",
               "label": "Contact Us",
               "ui": {
                 "defaultItem": {

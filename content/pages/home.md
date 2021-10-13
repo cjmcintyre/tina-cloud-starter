@@ -96,6 +96,6 @@ blocks:
       src: >-
         http://res.cloudinary.com/dyfo8zpbd/image/upload/v1634024715/undraw_contact_us_15o2_ybnokd.svg
       alt: Contact us
-    _template: contactUs
+    _template: contact
 ---
 

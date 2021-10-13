@@ -3331,7 +3331,7 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "PagesBlocksContactUsImage"
+        "value": "PagesBlocksContactImage"
       },
       "fields": [
         {
@@ -3372,7 +3372,7 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "PagesBlocksContactUs"
+        "value": "PagesBlocksContact"
       },
       "fields": [
         {
@@ -3431,7 +3431,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "PagesBlocksContactUsImage"
+              "value": "PagesBlocksContactImage"
             }
           }
         }
@@ -3484,7 +3484,7 @@
           "kind": "NamedType",
           "name": {
             "kind": "Name",
-            "value": "PagesBlocksContactUs"
+            "value": "PagesBlocksContact"
           }
         }
       ]
@@ -5238,7 +5238,7 @@
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
-        "value": "PagesBlocksContactUsImageMutation"
+        "value": "PagesBlocksContactImageMutation"
       },
       "fields": [
         {
@@ -5275,7 +5275,7 @@
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
-        "value": "PagesBlocksContactUsMutation"
+        "value": "PagesBlocksContactMutation"
       },
       "fields": [
         {
@@ -5330,7 +5330,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "PagesBlocksContactUsImageMutation"
+              "value": "PagesBlocksContactImageMutation"
             }
           }
         }
@@ -5417,13 +5417,13 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "contactUs"
+            "value": "contact"
           },
           "type": {
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "PagesBlocksContactUsMutation"
+              "value": "PagesBlocksContactMutation"
             }
           }
         }

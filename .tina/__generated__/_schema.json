@@ -1379,7 +1379,7 @@
               ]
             },
             {
-              "name": "contactUs",
+              "name": "contact",
               "label": "Contact Us",
               "ui": {
                 "defaultItem": {
@@ -1394,7 +1394,7 @@
                   "namespace": [
                     "pages",
                     "blocks",
-                    "contactUs",
+                    "contact",
                     "headline"
                   ]
                 },
@@ -1405,7 +1405,7 @@
                   "namespace": [
                     "pages",
                     "blocks",
-                    "contactUs",
+                    "contact",
                     "body"
                   ]
                 },
@@ -1430,7 +1430,7 @@
                   "namespace": [
                     "pages",
                     "blocks",
-                    "contactUs",
+                    "contact",
                     "color"
                   ]
                 },
@@ -1446,7 +1446,7 @@
                       "namespace": [
                         "pages",
                         "blocks",
-                        "contactUs",
+                        "contact",
                         "image",
                         "src"
                       ]
@@ -1458,7 +1458,7 @@
                       "namespace": [
                         "pages",
                         "blocks",
-                        "contactUs",
+                        "contact",
                         "image",
                         "alt"
                       ]
@@ -1467,7 +1467,7 @@
                   "namespace": [
                     "pages",
                     "blocks",
-                    "contactUs",
+                    "contact",
                     "image"
                   ]
                 }
@@ -1475,7 +1475,7 @@
               "namespace": [
                 "pages",
                 "blocks",
-                "contactUs"
+                "contact"
               ]
             }
           ],
