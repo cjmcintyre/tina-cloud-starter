@@ -214,6 +214,78 @@ const featureBlockShema: TinaTemplate = {
   ],
 };
 
+const defaultImage =  {
+  imageTitle: "Headline",
+  image: {
+      src: "http://res.cloudinary.com/dyfo8zpbd/image/upload/v1632813018/Web_design_SVG_xbmjy9.svg",
+      alt: "default image"
+    }
+  };
+
+const imageBlockSchema: TinaTemplate = {
+  name: "images",
+  label: "Images",
+  ui: {
+    defaultItem: {
+      items: [defaultImage, defaultImage, defaultImage],
+      color: "Primary",
+    },
+  },
+  fields: [
+    {
+      type: "object",
+      label: "Image Items",
+      name: "items",
+      list: true,
+      ui: {
+        defaultItem: {
+          ...defaultImage,
+        },
+      },
+      fields: [
+        {
+          type: "string",
+          label: "Image Title",
+          name: "imageTitle",
+        },
+        {
+          type: "object",
+          label: "Image",
+          name: "image",
+          fields: [{
+              name: "src",
+              label: "Image Source",
+              type: "image",
+            },{
+              name: "alt",
+              label: "Alt Text",
+              type: "string",
+            }],
+        },
+        {
+          type: "string",
+          label: "Text",
+          name: "text",
+          ui: {
+            component: "markdown",
+          },
+        },
+      ],
+    },
+    {
+      type: "string",
+      label: "Color",
+      name: "color",
+      options: [
+        { label: "Default", value: "default" },
+        { label: "Tint", value: "tint" },
+        { label: "Primary", value: "primary" },
+      ],
+    },
+  ],
+};
+
+
 const contentBlockSchema: TinaTemplate = {
   name: "content",
   label: "Content",
@@ -239,6 +311,56 @@ const contentBlockSchema: TinaTemplate = {
         { label: "Default", value: "default" },
         { label: "Tint", value: "tint" },
         { label: "Primary", value: "primary" },
+      ],
+    },
+  ],
+};
+
+
+const contactUsBlockSchema: TinaTemplate = {
+  name: "contactUs",
+  label: "Contact Us",
+  ui: {
+    defaultItem: {
+      body: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    },
+  },
+  fields: [
+    {
+      type: "string",
+      label: "Headline",
+      name: "headline",
+    },
+    {
+      type: "string",
+      label: "Body",
+      name: "body",
+    },
+    {
+      type: "string",
+      label: "Color",
+      name: "color",
+      options: [
+        { label: "Default", value: "default" },
+        { label: "Tint", value: "tint" },
+        { label: "Primary", value: "primary" },
+      ],
+    },
+    {
+      type: "object",
+      label: "Image",
+      name: "image",
+      fields: [
+        {
+          name: "src",
+          label: "Image Source",
+          type: "image",
+        },
+        {
+          name: "alt",
+          label: "Alt Text",
+          type: "string",
+        },
       ],
     },
   ],
@@ -274,43 +396,9 @@ const testimonialBlockSchema: TinaTemplate = {
       label: "Color",
       name: "color",
       options: [
-        {
-          label: "Primary",
-          value: "primary",
-        },
-        {
-          label: "Blue",
-          value: "blue",
-        },
-        {
-          label: "Teal",
-          value: "teal",
-        },
-        {
-          label: "Green",
-          value: "green",
-        },
-        {
-          label: "Red",
-          value: "red",
-        },
-        {
-          label: "Pink",
-          value: "pink",
-        },
-        {
-          label: "Purple",
-          value: "purple",
-        },
-        {
-          label: "Orange",
-          value: "orange",
-        },
-        {
-          label: "Yellow",
-          value: "yellow",
-        },
-
+        { label: "Default", value: "default" },
+        { label: "Tint", value: "tint" },
+        { label: "Primary", value: "primary" },
       ],
     },
   ],
@@ -616,6 +704,18 @@ export default defineSchema({
                   label: "Lato",
                   value: "lato",
                 },
+                {
+                  label: "Mono",
+                  value: "mono",
+                },
+                {
+                  label: "Mont",
+                  value: "mont",
+                },
+                {
+                  label: "Roboto Slab",
+                  value: "robotoSlab"
+                }
               ],
             },
             {
@@ -688,6 +788,8 @@ export default defineSchema({
             featureBlockShema,
             contentBlockSchema,
             testimonialBlockSchema,
+            imageBlockSchema,
+            contactUsBlockSchema,
           ],
         },
       ],
