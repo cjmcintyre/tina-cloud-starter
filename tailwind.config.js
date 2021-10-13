@@ -113,6 +113,9 @@ module.exports = {
       fontFamily: {
         nunito: ["Nunito", ...defaultTheme.fontFamily.sans],
         lato: ["Lato", ...defaultTheme.fontFamily.sans],
+        mono: ['Source Code Pro', ...defaultTheme.fontFamily.mono],
+        mont: ['Montserrat', ...defaultTheme.fontFamily.sans],
+        robotoSlab: ["Roboto Slab", ...defaultTheme.fontFamily.serif],
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -136,6 +139,21 @@ module.exports = {
             },
             "p:first-of-type": {
               fontSize: "1.125rem",
+            },
+             strong: {
+              position: 'relative',
+            },
+            "strong::after": {
+              position: 'absolute',
+              content: '""',
+              backgroundImage: "url('https://res.cloudinary.com/dyfo8zpbd/image/upload/v1633848003/underline1_ndu9id.svg')",
+              backgroundRepeat: 'no-repeat',
+              //zIndex: '-1',
+              height: "0.35rem",
+              bottom: "-0.225rem",
+              left: "-0.3rem",
+              right: "-0.3rem",
+              backgroundSize: "cover",
             },
           },
         },
@@ -235,7 +253,11 @@ module.exports = {
     },
   },
   variants: {
-    extend: { typography: ["tint", "dark", "primary"] },
+    extend: { typography: ["tint", "dark", "primary"],
+              position: ["relative", "absolute"],},
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require('@tailwindcss/forms'),
+  ],
 };
