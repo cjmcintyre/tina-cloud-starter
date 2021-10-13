@@ -1,15 +1,19 @@
 {
   "header": {
     "icon": {
-      "color": "blue",
-      "style": "float",
-      "name": "map"
+      "color": "primary",
+      "style": "circle",
+      "name": "code"
     },
     "color": "default",
     "nav": [
       {
         "href": "",
         "label": "Home"
+      },
+      {
+        "href": "services",
+        "label": "Our services"
       },
       {
         "href": "about",
@@ -22,7 +26,7 @@
     ]
   },
   "footer": {
-    "color": "primary",
+    "color": "default",
     "social": {
       "facebook": "/",
       "twitter": "/",
@@ -31,8 +35,8 @@
   },
   "theme": {
     "color": "blue",
-    "font": "sans",
-    "icon": "boxicon",
+    "font": "mont",
+    "icon": "heroicon",
     "darkMode": "system"
   }
 }

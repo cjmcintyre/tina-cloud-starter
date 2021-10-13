@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Container } from "./container";
 import { ThemeContext } from "./theme";
 import { Icon } from "./icon";
 import { useRouter } from "next/router";
+import useMediaQuery from "./hooks/useMediaQuery";
 
 export const Header = ({ data }) => {
+  const isMobile = useMediaQuery("(max-width:774px)");
   const theme = React.useContext(ThemeContext);
+  
+  let [isOpen, setIsOpen] = useState(false);
 
   const headerColor = {
     default:
@@ -41,6 +45,10 @@ export const Header = ({ data }) => {
 
   const router = useRouter();
 
+  const triggerToggle = () => {
+    setIsOpen(!isOpen);
+  }
+  
   return (
     <div className={`bg-gradient-to-b ${headerColorCss}`}>
       <Container className="py-0 relative z-10 max-w-8xl">
@@ -57,11 +65,47 @@ export const Header = ({ data }) => {
                   }}
                   className="inline-block h-auto w-10 mr-1"
                 />{" "}
-                Tina Starter
+                foobar
               </a>
             </Link>
           </h4>
-          <ul className="flex gap-6 sm:gap-8 lg:gap-10">
+          {isMobile ?
+            <>
+              <button onClick={triggerToggle}>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none" /><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg>
+              </button>
+            </>
+            :
+            <ul className="flex gap-6 sm:gap-8 lg:gap-10">
+              {data.nav &&
+                data.nav.map((item, i) => {
+                  const route =
+                    router.asPath === "/" ? "home" : router.asPath || "home";
+                  const href = item.href || "home";
+                  const activeItem = route.includes(href);
+                  return (
+                    <li
+                      key={`${item.label}-${i}`}
+                      className={activeItem ? activeItemClasses[theme.color] : ""}
+                    >
+                      <Link href={`/${item.href || "home"}`}>
+                        <a className="select-none	text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-8">
+                          {item.label}
+                        </a>
+                      </Link>
+                    </li>
+                  );
+                })}
+            </ul>
+          }
+        </div>
+        <div
+          className={`absolute h-1 bg-gradient-to-r from-transparent ${
+            data.color === "primary" ? `via-white` : `via-black dark:via-white`
+          } to-transparent bottom-0 left-4 right-4 -z-1 opacity-5`}
+        ></div>
+        {isMobile && isOpen ?
+          <ul className=" traflex-auto flex-col">
             {data.nav &&
               data.nav.map((item, i) => {
                 const route =
@@ -71,7 +115,7 @@ export const Header = ({ data }) => {
                 return (
                   <li
                     key={`${item.label}-${i}`}
-                    className={activeItem ? activeItemClasses[theme.color] : ""}
+                    className={`flex justify-center ${activeItem ? activeItemClasses[theme.color] : ""} `}
                   >
                     <Link href={`/${item.href || "home"}`}>
                       <a className="select-none	text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-8">
@@ -82,12 +126,7 @@ export const Header = ({ data }) => {
                 );
               })}
           </ul>
-        </div>
-        <div
-          className={`absolute h-1 bg-gradient-to-r from-transparent ${
-            data.color === "primary" ? `via-white` : `via-black dark:via-white`
-          } to-transparent bottom-0 left-4 right-4 -z-1 opacity-5`}
-        ></div>
+          : false}
       </Container>
     </div>
   );
