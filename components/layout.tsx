@@ -5,13 +5,13 @@ import { Footer } from "./footer";
 import layoutData from "../content/global/index.json";
 import { Theme } from "./theme";
 
-declare global {
+/* declare global {
   interface Window { cookieconsent?: any; }
-}
+} */
 
 export const Layout = ({ rawData = "", data = layoutData, children }) => {
   
-
+/*
    useEffect(() => {
               window.cookieconsent?.initialise({
                 "palette": {
@@ -31,27 +31,38 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
                 },
                 "revokable" : true,
                 revokeBtn: `<div class="cc-revoke cc-bottom cc-animate cc-color-override-782958852">🍪 Cookie policy</div>`,
+                 onInitialise: function(status) {
+                  var type = this.options.type;
+                  var didConsent = this.hasConsented();
+
+                  if (type == 'opt-in' && didConsent) {
+                    setCookies()
+                  // enable cookies
+                  }
+                  if (type == 'opt-out' && !didConsent) {
+                    deleteCookies(this.options.cookie.name);
+                  // disable cookies
+                  }
+                }, 
                 onStatusChange: function(status) {
                 this.hasConsented() ? setCookies() : deleteCookies(this.options.cookie.name);
                 },
                 onRevokeChoice: function() {
                   var type = this.options.type;
-                  if (type == "opt-in") {
-                    deleteCookies(this.options.cookie.name)
-                  } 
+                  type == "opt-in" ? deleteCookies(this.options.cookie.name) : setCookies();
                 },
                 law: {
                 regionalLaw: false,
                 },
                 dismissOnScroll: 200,
-                dismissOnTimeout: 30000,
+                dismissOnTimeout: 15000,
                 dismissOnWindowClick: true,
               });
             
   }, []);
+*/
 
   function setCookies() {
-      console.log("setCookies hit")
       var s = document.createElement('script');
       s.type = "text/javascript"
       s.async = true;
@@ -70,6 +81,7 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
       // you can add facebook-pixel and other cookies here
   };
 
+/*
   function deleteCookies(cookieconsent_name) {
     console.log(cookieconsent_name, " inside deletecookies");
     var keep = [cookieconsent_name, "DYNSRV"];
@@ -80,13 +92,15 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
         if (!~keep.indexOf(c))
             document.cookie = c + '=;' + 'expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';
     });
-  };
+  }; */
   return (
     <>
       <Head>
-        <title>Tina</title>
+        <title>foobar</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-
+        {useEffect(() => {
+          setCookies()
+        })}
         {data.theme.font === "nunito" && (
           <>
             <link rel="preconnect" href="https://fonts.googleapis.com" />
