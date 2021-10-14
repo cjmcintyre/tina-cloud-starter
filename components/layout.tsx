@@ -17,11 +17,12 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
     const cc = new CookieConsent({
       "palette": {
         "popup": {
-          "background": "black",
-          "text": "white"
+          "background": "#312e3b",
+          "text": "#fff"
         },
         "button": {
-          "background": "#f5d948"
+          "background": "#4285f4",
+          "text": "#ffffff",
         }
       },
       type: 'opt-in',
@@ -40,7 +41,14 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
       },
       content: {
         privacyPolicyLink: '/privacy-policy',
-        cookiePolicyLink: '/cookie-policy'
+        cookiePolicyLink: '/cookie-policy',
+        message: `We use cookies to recognize your repeat visits and preferences, as well as to measure the effectiveness of campaigns and analyze traffic.  To accomplish this, we must store cookies on your device. If you're cool with that, hit "Accept all cookies". For more information and to customize your settings, hit "Customize settings".`,
+        categoryAnalytics: 'These cookies collect information to help us understand how our website is being used. They allow us to count unique visits and see from where visitors came from. We can also see how users navigate between pages and what actions they take. With this information, we can measure and improve the content of our site and ensure its accessible to all users.',
+        categoryEssential: `These cookies are necessary to make this site run properly and securely. For example, with this kind of cookies, we register your cookie preferences so that you won't be seeing this pop-up next time you visit our page and we can keep track which categories you have opted-in.`,
+       // categoryMarketing: '',
+      //  categoryPersonalization: '',
+      //  categoryUncategorized: '',
+        customizeMessage: `Here is an overview of the cookies we use on this site. Please select categories that you are OK with. You can always change your choices at any time, by clicking the "🍪" link on the site's footer.`,
       },
     });
 
@@ -193,7 +201,6 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
             data={data?.footer}
             icon={data?.header.icon}
           />
-          <div id="cc-revoke-choice">Change my consent</div>
         </div>
       </Theme>
     </>

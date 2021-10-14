@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-.cc-revoke, .cc-window {
-    font-family: inherit;
+/*All for the cookie window styling overrides*/
+
+.cc-customize-content, .cc-customize-header, .cc-customize-message, .cc-message, .cc-btn.cc-ALLOW, .cc-policies-links {
+    font-family: "Montserrat";
+}
+
+.cc-btn.cc-customize  {
+    font-family: "Montserrat";
+    font-size: 12px;
+}
+
+.cc-policies-links, .cc-more-info {
+    font-size: 14px;
+}
+
+.cc-readmore {
+    color: white !important;
+    opacity: .8;
 }

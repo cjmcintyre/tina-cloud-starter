@@ -122,6 +122,7 @@ export const Footer = ({ data, icon, rawData }) => {
                 />
               </a>
             )}
+            <div id="cc-revoke-choice" title="Cookies" aria-label="Cookies">🍪</div>
           </div>
           <RawRenderer parentColor={data.color} rawData={rawData} />
         </div>
