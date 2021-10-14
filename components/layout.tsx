@@ -11,7 +11,7 @@ declare global {
   interface Window { gtmInitialized?: any; }
 }
 
-const prod_url = 'localhost';
+const prod_url = 'tina-area.vercel.app';
 
 export const Layout = ({ rawData = "", data = layoutData, children }) => {
 
