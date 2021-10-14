@@ -11,6 +11,8 @@ declare global {
   interface Window { gtmInitialized?: any; }
 }
 
+const prod_url = 'tina-area.vercel.app';
+
 export const Layout = ({ rawData = "", data = layoutData, children }) => {
 
   useEffect(() => {
@@ -36,7 +38,7 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
         [CookieConsent.MARKETING]: false
       },
       cookie: {
-        domain: 'tina-area.vercel.app',
+        domain: prod_url,
         name: 'foo',
       },
       content: {
@@ -45,30 +47,49 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
         message: `We use cookies to recognize your repeat visits and preferences, as well as to measure the effectiveness of campaigns and analyze traffic.  To accomplish this, we must store cookies on your device. If you're cool with that, hit "Accept all cookies". For more information and to customize your settings, hit "Customize settings".`,
         categoryAnalytics: 'These cookies collect information to help us understand how our website is being used. They allow us to count unique visits and see from where visitors came from. We can also see how users navigate between pages and what actions they take. With this information, we can measure and improve the content of our site and ensure its accessible to all users.',
         categoryEssential: `These cookies are necessary to make this site run properly and securely. For example, with this kind of cookies, we register your cookie preferences so that you won't be seeing this pop-up next time you visit our page and we can keep track which categories you have opted-in.`,
-       // categoryMarketing: '',
-      //  categoryPersonalization: '',
-      //  categoryUncategorized: '',
+        // categoryMarketing: '',
+        //  categoryPersonalization: '',
+        //  categoryUncategorized: '',
         customizeMessage: `Here is an overview of the cookies we use on this site. Please select categories that you are OK with. You can always change your choices at any time, by clicking the "🍪" link on the site's footer.`,
       },
     });
 
     cc.on('initialized', function () {
       const { consents } = cc;
+      if (consents.ESSENTIAL === 'ALLOW') {
+        if (consents.ANALYTICS === 'ALLOW') {
+          initializeGTM();
+        }
 
-      if (consents.ANALYTICS === 'DENY') {
-        //cleanup gtags that got readded?
-        console.log("oninitialise recleanup gtag hit")
-        cc.deleteCookie("_ga_DC3ZXPZSXL");
+        if (consents.ANALYTICS === 'DENY') {
+          //cleanup gtags that got readded?
+          console.log("oninitialise recleanup gtag hit")
+          var checkgTag = document.cookie.indexOf('_ga_DC3ZXPZSXL');
+          if (checkgTag === 41) {
+            cc.deleteCookie("_ga_DC3ZXPZSXL");
+          }
+
+          var object2 = JSON.parse(localStorage.getItem("foo_ESSENTIAL"));
+          if (object2) {
+            var dateString = object2.timestamp;
+            var now = new Date().getTime();
+            if (now > dateString) {
+              document.cookie = `foo_ANALYTICS=DENY; domain=${prod_url}; max-age=0`;
+              document.cookie = `foo_ESSENTIAL=ALLOW; domain=${prod_url}; max-age=0`;
+            }
+          } else {
+            var object = { value: "ALLOW", timestamp: (Date.now() + 604800000) }
+            localStorage.setItem("foo_ESSENTIAL", JSON.stringify(object));
+          }
+        }
       }
-
-      if (consents.ANALYTICS === 'ALLOW') {
-        initializeGTM();
-      }
-
     });
 
     cc.on('popupClosed', function () {
       const { consents } = cc;
+
+      var object = { value: "ALLOW", timestamp: (Date.now() + 604800000) }
+      localStorage.setItem("foo_ESSENTIAL", JSON.stringify(object));
 
       if (consents.ANALYTICS === 'ALLOW') {
         initializeGTM();
