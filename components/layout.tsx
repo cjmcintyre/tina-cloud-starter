@@ -34,6 +34,10 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
         [CookieConsent.ANALYTICS]: true,
         [CookieConsent.MARKETING]: false
       },
+      cookie: {
+        domain: 'tina-area.vercel.app',
+        name: 'foo',
+      },
       content: {
         privacyPolicyLink: '/privacy-policy',
         cookiePolicyLink: '/cookie-policy'
