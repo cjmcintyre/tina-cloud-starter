@@ -38,6 +38,7 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
         [CookieConsent.MARKETING]: false
       },
       cookie: {
+        expiryDays: 365*2,
         domain: prod_url,
         name: 'foo',
       },
@@ -73,12 +74,12 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
           if (object2) {
             var dateString = object2.timestamp;
             var now = new Date().getTime();
-            if (now > dateString) {
+            if (now > (dateString + 604800000)) {
               document.cookie = `foo_ANALYTICS=DENY; domain=${prod_url}; max-age=0`;
               document.cookie = `foo_ESSENTIAL=ALLOW; domain=${prod_url}; max-age=0`;
             }
           } else {
-            var object = { value: "ALLOW", timestamp: (Date.now() + 604800000) }
+            var object = { value: "ALLOW", timestamp: Date.now() }
             localStorage.setItem("foo_ESSENTIAL", JSON.stringify(object));
           }
         }
@@ -88,7 +89,7 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
     cc.on('popupClosed', function () {
       const { consents } = cc;
 
-      var object = { value: "ALLOW", timestamp: (Date.now() + 604800000) }
+      var object = { value: "ALLOW", timestamp: Date.now() }
       localStorage.setItem("foo_ESSENTIAL", JSON.stringify(object));
 
       if (consents.ANALYTICS === 'ALLOW') {
