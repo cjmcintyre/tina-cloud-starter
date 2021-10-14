@@ -57,6 +57,7 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
 
     cc.on('initialized', function () {
       const { consents } = cc;
+      cc.popup.userCategories = {UNCATEGORIZED: 'DENY', ESSENTIAL: 'ALLOW', PERSONALIZATION: 'DENY', ANALYTICS: 'ALLOW', MARKETING: 'DENY'};
       if (consents.ESSENTIAL === 'ALLOW') {
         if (consents.ANALYTICS === 'ALLOW') {
           initializeGTM();
