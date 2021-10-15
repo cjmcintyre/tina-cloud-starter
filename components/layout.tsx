@@ -38,7 +38,7 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
         [CookieConsent.MARKETING]: false
       },
       cookie: {
-        expiryDays: 365*2,
+        expiryDays: 365 * 2,
         domain: prod_url,
         name: 'foo',
       },
@@ -57,7 +57,7 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
 
     cc.on('initialized', function () {
       const { consents } = cc;
-      cc.popup.userCategories = {UNCATEGORIZED: 'DENY', ESSENTIAL: 'ALLOW', PERSONALIZATION: 'DENY', ANALYTICS: 'ALLOW', MARKETING: 'DENY'};
+      cc.popup.userCategories = { UNCATEGORIZED: 'DENY', ESSENTIAL: 'ALLOW', PERSONALIZATION: 'DENY', ANALYTICS: 'ALLOW', MARKETING: 'DENY' };
       if (consents.ESSENTIAL === 'ALLOW') {
         if (consents.ANALYTICS === 'ALLOW') {
           initializeGTM();
@@ -112,7 +112,7 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
 
     function initializeGTM() {
       if (!isGTMInitialized()) {
-
+        //g4
         var newScript = document.createElement('script');
         const inlineScript = document.createTextNode(
           `window.dataLayer = window.dataLayer || [];
@@ -129,8 +129,17 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
         s.type = "text/javascript"
         s.async = true;
         s.src = "https://www.googletagmanager.com/gtag/js?id=G-DC3ZXPZSXL";
-        var x = document.getElementsByTagName('script')[0];
         x.parentNode.insertBefore(s, x);
+
+        // Tag manager
+        var anotherScript = document.createElement('script');
+        const anotherInlineScript = document.createTextNode(`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5SP8J8F');`);
+
+        anotherScript.appendChild(anotherInlineScript);
+        x.parentNode.insertBefore(anotherScript, x);
+
+        //What is JS is disabled tho? we wont even get here...
+        document.body.insertAdjacentHTML('afterbegin', '<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SP8J8F" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>');
 
         window.gtmInitialized = true;
       }
@@ -202,8 +211,6 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
             />
           </>
         )}
-        {/*   <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" /> */}
       </Head>
       <Theme data={data?.theme}>
         <div
