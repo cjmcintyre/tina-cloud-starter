@@ -3,9 +3,7 @@ import axios from 'axios';
 import { ThemeContext } from '../theme';
 import { invertedButtonColorClasses } from '../actions';
 import { buttonColorClasses } from '../actions';
-import { headlineColorClasses } from './images';
 import { PrivacyPolicy } from '../unnamed/privacy';
-
 
 const ContactForm = ({ data }) => {
 
@@ -78,41 +76,7 @@ const ContactForm = ({ data }) => {
 
   return (
     <>
-    <div className="px-2 md:px-8 py-6 mt-4 w-full">
-
-    {data.headline && (
-            <h3
-              className={`w-full relative	mb-10 text-3xl font-extrabold tracking-normal leading-tight title-font`}
-            >
-              <span
-                className={`bg-clip-text text-transparent bg-gradient-to-r  ${
-                  data.color === "primary"
-                    ? `from-white to-gray-100`
-                    : headlineColorClasses[theme.color]
-                }`}
-              >
-                {data.headline}
-              </span>
-            </h3>
-          )} 
-    
-    {data.body}
-
-
-    {data.image && (
-          <div className="row-start-1 flex justify-center">
-            <img
-              className=" h-auto"
-              
-              alt={data.image.alt}
-              src={data.image.src}
-            />
-          </div>
-        )}
-        
-        </div>
-
-    <div className=" px-2 md:px-8 py-6 mt-4 w-full">
+    <div className=" px-2 md:px-8 py-6 mt-4 w-full ">
      
       <form className="w-full" onSubmit={handleOnSubmit}>
               
@@ -189,19 +153,6 @@ const ContactForm = ({ data }) => {
             </input>
           </div>
         </div>
-
-        <div className="md:flex md:items-center mb-6">
-        <div className="md:w-1/3"></div>
-        <label className="md:w-2/3 block text-gray-500 font-bold">
-          <input className="mr-2 leading-tight" type="checkbox"
-          required
-          disabled={status.submitting}>
-            </input>
-          <span className="text-sm">
-            I accept the <PrivacyPolicy clickHandler={clickHandler}>policy agreement</PrivacyPolicy>.
-          </span>
-        </label>
-      </div>
     <div className="md:flex md:items-center">
        <div className="md:w-1/3"></div>
          <div className="md:w-2/3">
