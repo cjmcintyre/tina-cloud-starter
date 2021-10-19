@@ -62,6 +62,7 @@ export const Footer = ({ data, icon, rawData }) => {
             </a>
           </Link>
           <div className="flex gap-4">
+          <div className="cursor-pointer" id="cc-revoke-choice" title="Cookies" aria-label="Cookies">🍪</div>
             {data.social && data.social.facebook && (
               <a
                 className="inline-block opacity-80 hover:opacity-100 transition ease-out duration-150"
@@ -122,6 +123,8 @@ export const Footer = ({ data, icon, rawData }) => {
                 />
               </a>
             )}
+          </div>
+          <div className="flex justify-between items-center gap-6 flex-wrap">
              <a
                 className="inline-block opacity-80 hover:opacity-100 transition ease-out duration-150"
                 href="/privacy-policy"
@@ -136,8 +139,7 @@ export const Footer = ({ data, icon, rawData }) => {
               >
                 Terms and Conditions
               </a>
-            <div className="cursor-pointer" id="cc-revoke-choice" title="Cookies" aria-label="Cookies">🍪</div>
-          </div>
+              </div>
         </div>
         <div
           className={`absolute h-1 bg-gradient-to-r from-transparent ${
