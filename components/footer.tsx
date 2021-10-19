@@ -124,14 +124,14 @@ export const Footer = ({ data, icon, rawData }) => {
             )}
              <a
                 className="inline-block opacity-80 hover:opacity-100 transition ease-out duration-150"
-                href="privacy-policy"
+                href="/privacy-policy"
                 target="_blank"
               >
                 Privacy
               </a>
               <a
                 className="inline-block opacity-80 hover:opacity-100 transition ease-out duration-150"
-                href="terms-and-conditions"
+                href="/terms-and-conditions"
                 target="_blank"
               >
                 Terms and Conditions

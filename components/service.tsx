@@ -37,37 +37,13 @@ export const Service = ({ data }) => {
           className={`w-full relative	mb-8 text-6xl leading-tight font-extrabold tracking-normal text-center title-font`}
         >
           <span
-            className={`bg-clip-text text-transparent bg-gradient-to-r ${
-              titleColorClasses[theme.color]
-            }`}
+            className={`bg-clip-text text-transparent bg-gradient-to-r ${titleColorClasses[theme.color]
+              }`}
           >
             {data.title}
           </span>
         </h2>
 
-{/*
-        <div className="flex items-center justify-center mb-16">
-          {data.author && (
-            <>
-              <div className="flex-shrink-0 mr-4">
-                <img
-                  className="h-14 w-14 object-cover rounded-full shadow-sm"
-                  src={data.author.data.avatar}
-                  alt={data.author.data.name}
-                />
-              </div>
-              <p className="text-base font-medium text-gray-600 group-hover:text-gray-800 dark:text-gray-200 dark:group-hover:text-white">
-                {data.author.data.name}
-              </p>
-              <span className="font-bold text-gray-200 dark:text-gray-500 mx-2">
-                —
-              </span>
-            </>
-          )}
-          <p className="text-base text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-150">
-           {formattedDate}
-          </p>
-        </div>*/}
       </Container>
       {data.heroImg && (
         <div className="px-6 max-w-4xl lg:max-w-6xl flex justify-center mx-auto">
@@ -82,16 +58,13 @@ export const Service = ({ data }) => {
         <div className="prose dark:prose-dark  w-full max-w-none">
           <Markdown>{data.body}</Markdown>
         </div>
-      
+
       </Container>
-      <Container className="flex flex-col md:flex-row"  size="default">
+      <Container className="flex flex-col md:flex-row" size="default">
 
-        
-          <img className="max-w-lg" src="http://res.cloudinary.com/dyfo8zpbd/image/upload/v1634024715/undraw_contact_us_15o2_ybnokd.svg" alt="Contact us"></img>
-
-        <ContactForm data={data} ></ContactForm>       
-        
-        </Container>
+        <img className="max-w-lg" src="http://res.cloudinary.com/dyfo8zpbd/image/upload/v1634024715/undraw_contact_us_15o2_ybnokd.svg" alt="Contact us"></img>
+        <ContactForm data={data} ></ContactForm>
+      </Container>
     </Section>
   );
 };
