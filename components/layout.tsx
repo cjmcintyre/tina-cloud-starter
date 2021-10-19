@@ -66,9 +66,9 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
         if (consents.ANALYTICS === 'DENY') {
           //cleanup gtags that got readded?
           console.log("oninitialise recleanup gtag hit")
-          var checkgTag = document.cookie.indexOf('_ga_DC3ZXPZSXL');
+          var checkgTag = document.cookie.indexOf('_ga_KM5HSF7CQT');
           if (checkgTag === 41) {
-            cc.deleteCookie("_ga_DC3ZXPZSXL");
+            cc.deleteCookie("_ga_KM5HSF7CQT");
           }
 
           var object2 = JSON.parse(localStorage.getItem("foo_ESSENTIAL"));
@@ -118,7 +118,7 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
           `window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-DC3ZXPZSXL');`);
+          gtag('config', 'G-KM5HSF7CQT');`);
 
         newScript.appendChild(inlineScript);
 
@@ -128,7 +128,7 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
         var s = document.createElement('script');
         s.type = "text/javascript"
         s.async = true;
-        s.src = "https://www.googletagmanager.com/gtag/js?id=G-DC3ZXPZSXL";
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-KM5HSF7CQT";
         x.parentNode.insertBefore(s, x);
 
         // Tag manager
@@ -147,7 +147,7 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
 
     function uninitializeGTM() {
       // remove cookies
-      cc.deleteCookie('_ga_DC3ZXPZSXL');
+      cc.deleteCookie('_ga_KM5HSF7CQT');
       cc.deleteCookie('_ga');
 
       // reload page to get rid of GTM
