@@ -57,7 +57,7 @@ export const Footer = ({ data, icon, rawData }) => {
                   color: data.color === "primary" ? "primary" : icon.color,
                   size: "custom",
                 }}
-                className="inline-block h-10 w-auto group-hover:text-orange-500"
+                className="inline-block h-10 w-auto group-hover:text-blue-500"
               />
             </a>
           </Link>
@@ -122,9 +122,22 @@ export const Footer = ({ data, icon, rawData }) => {
                 />
               </a>
             )}
-            <div id="cc-revoke-choice" title="Cookies" aria-label="Cookies">🍪</div>
+             <a
+                className="inline-block opacity-80 hover:opacity-100 transition ease-out duration-150"
+                href="privacy-policy"
+                target="_blank"
+              >
+                Privacy
+              </a>
+              <a
+                className="inline-block opacity-80 hover:opacity-100 transition ease-out duration-150"
+                href="terms-and-conditions"
+                target="_blank"
+              >
+                Terms and Conditions
+              </a>
+            <div className="cursor-pointer" id="cc-revoke-choice" title="Cookies" aria-label="Cookies">🍪</div>
           </div>
-          <RawRenderer parentColor={data.color} rawData={rawData} />
         </div>
         <div
           className={`absolute h-1 bg-gradient-to-r from-transparent ${
