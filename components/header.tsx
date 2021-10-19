@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { Container } from "./container";
 import { ThemeContext } from "./theme";
 import { Icon } from "./icon";
 import { useRouter } from "next/router";
 import useMediaQuery from "./hooks/useMediaQuery";
+import useOutsideClick from "./hooks/useOutsideClick";
 
 export const Header = ({ data }) => {
   const isMobile = useMediaQuery("(max-width:774px)");
   const theme = React.useContext(ThemeContext);
   
   let [isOpen, setIsOpen] = useState(false);
+  const ref = useRef();
+ 
+  useOutsideClick(ref, () => {
+    setIsOpen(false);
+  });
 
   const headerColor = {
     default:
@@ -45,12 +51,10 @@ export const Header = ({ data }) => {
 
   const router = useRouter();
 
-  const triggerToggle = () => {
-    setIsOpen(!isOpen);
-  }
+  const toggle = () => setIsOpen(!isOpen);
   
   return (
-    <div className={`bg-gradient-to-b ${headerColorCss}`}>
+    <div className={`bg-gradient-to-b ${headerColorCss}`} ref={ref}>
       <Container className="py-0 relative z-10 max-w-8xl">
         <div className="flex items-center justify-between">
           <h4 className="select-none text-lg font-bold tracking-tight my-4 transition duration-150 ease-out transform">
@@ -71,7 +75,7 @@ export const Header = ({ data }) => {
           </h4>
           {isMobile ?
             <>
-              <button onClick={triggerToggle}>
+              <button onClick={toggle}>
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none" /><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg>
               </button>
             </>
@@ -105,7 +109,7 @@ export const Header = ({ data }) => {
           } to-transparent bottom-0 left-4 right-4 -z-1 opacity-5`}
         ></div>
         {isMobile && isOpen ?
-          <ul className=" traflex-auto flex-col">
+          <ul className=" traflex-auto flex-col text-center" >
             {data.nav &&
               data.nav.map((item, i) => {
                 const route =
@@ -115,10 +119,10 @@ export const Header = ({ data }) => {
                 return (
                   <li
                     key={`${item.label}-${i}`}
-                    className={`flex justify-center ${activeItem ? activeItemClasses[theme.color] : ""} `}
+                    className={`flex ${activeItem ? activeItemClasses[theme.color] : ""} `}
                   >
                     <Link href={`/${item.href || "home"}`}>
-                      <a className="select-none	text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-8">
+                      <a className="w-full select-none text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-8">
                         {item.label}
                       </a>
                     </Link>
