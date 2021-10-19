@@ -33,12 +33,13 @@ export const Service = ({ data }) => {
   return (
     <Section className="flex-1">
       <Container className={`flex-1 max-w-4xl pb-2`} size="large">
-        <h2
-          className={`w-full relative	mb-8 text-6xl leading-tight font-extrabold tracking-normal text-center title-font`}
+         <h2
+          className={`w-full relative	mb-8 text-3xl md:text-6xl  leading-tight font-extrabold tracking-normal text-left title-font`}
         >
-          <span
-            className={`bg-clip-text text-transparent bg-gradient-to-r ${titleColorClasses[theme.color]
-              }`}
+           <span
+            className={`bg-clip-text text-transparent bg-gradient-to-r ${
+              titleColorClasses[theme.color]
+            }`}
           >
             {data.title}
           </span>
@@ -49,7 +50,7 @@ export const Service = ({ data }) => {
         <div className="px-6 max-w-4xl lg:max-w-6xl flex justify-center mx-auto">
           <img
             src={data.heroImg}
-            className="mx-2 my-2 block h-auto max-w-full mx-auto object-cover rounded-md"
+            className="my-2 block h-auto max-w-full mx-auto object-cover rounded-md"
             style={{ maxHeight: "80vh" }}
           />
         </div>
