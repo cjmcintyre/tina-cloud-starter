@@ -3,8 +3,7 @@ blocks:
   - tagline: ''
     headline: Looking for help? Welcome.
     text: >-
-      Situated in the nations capital, but operating **remotely**.
-
+      Situated in Canberra, but operating **remotely** across Australia.
 
 
       We are specialists in bringing your website into the 21st century by
@@ -49,8 +48,7 @@ blocks:
         text: >-
           Facebook, YouTube, and Instagram are examples of social media
           platforms that are effective for disseminating information and
-          material to a large audience. We can help you determine which social
-          media platforms could be vital for your success.
+          material to a large audience.
     color: primary
     _template: features
   - quote: |-
