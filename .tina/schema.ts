@@ -285,7 +285,6 @@ const imageBlockSchema: TinaTemplate = {
   ],
 };
 
-
 const contentBlockSchema: TinaTemplate = {
   name: "content",
   label: "Content",
@@ -322,7 +321,10 @@ const contactBlockSchema: TinaTemplate = {
   label: "Contact Us",
   ui: {
     defaultItem: {
-      body: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+      headline: "headline",
+      body: "body",
+      color: "primary",
+      image: defaultImage
     },
   },
   fields: [
@@ -534,6 +536,65 @@ export default defineSchema({
           type: "image",
           name: "heroImg",
           label: "Hero Image",
+        },
+        {
+          type: "string",
+          label: "Excerpt",
+          ui: {
+            component: "textarea",
+          },
+          name: "excerpt",
+        },
+        {
+          type: "string",
+          label: "Body",
+          ui: {
+            component: "markdown",
+          },
+          name: "body",
+          isBody: true,
+        },
+      ],
+    },
+    {
+      label: "Services",
+      name: "services",
+      path: "content/services",
+      fields: [
+        {
+          type: "number",
+          label: "Order",
+          name: "order",
+        },
+        {
+          type: "string",
+          label: "Title",
+          name: "title",
+        },
+        {
+          type: "reference",
+          label: "Author",
+          name: "author",
+          collections: ["authors"],
+        },
+        {
+          type: "datetime",
+          label: "Posted Date",
+          name: "date",
+          ui: {
+            dateFormat: "MMMM DD YYYY",
+            timeFormat: "hh:mm A",
+          },
+        },
+        {
+          type: "image",
+          name: "heroImg",
+          label: "Hero Image",
+        },
+        {
+          type: "image",
+          name: "excerptImg",
+          label: "Excerpt Image",
         },
         {
           type: "string",

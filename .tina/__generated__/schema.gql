@@ -47,6 +47,8 @@ type Query {
   getDocumentList(before: String, after: String, first: Int, last: Int): DocumentConnection!
   getPostsDocument(relativePath: String): PostsDocument!
   getPostsList(before: String, after: String, first: Int, last: Int): PostsConnection!
+  getServicesDocument(relativePath: String): ServicesDocument!
+  getServicesList(before: String, after: String, first: Int, last: Int): ServicesConnection!
   getGlobalDocument(relativePath: String): GlobalDocument!
   getGlobalList(before: String, after: String, first: Int, last: Int): GlobalConnection!
   getAuthorsDocument(relativePath: String): AuthorsDocument!
@@ -78,7 +80,7 @@ type Collection {
   documents(before: String, after: String, first: Int, last: Int): DocumentConnection!
 }
 
-union DocumentNode = PostsDocument | GlobalDocument | AuthorsDocument | PagesDocument
+union DocumentNode = PostsDocument | ServicesDocument | GlobalDocument | AuthorsDocument | PagesDocument
 
 union PostsAuthorDocument = AuthorsDocument
 
@@ -109,6 +111,39 @@ type PostsConnection implements Connection {
   pageInfo: PageInfo
   totalCount: Int!
   edges: [PostsConnectionEdges]
+}
+
+union ServicesAuthorDocument = AuthorsDocument
+
+type Services {
+  order: Int
+  title: String
+  author: ServicesAuthorDocument
+  date: String
+  heroImg: String
+  excerptImg: String
+  excerpt: String
+  body: String
+}
+
+type ServicesDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: Services!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type ServicesConnectionEdges {
+  cursor: String
+  node: ServicesDocument
+}
+
+type ServicesConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [ServicesConnectionEdges]
 }
 
 type GlobalHeaderIcon {
@@ -305,6 +340,7 @@ type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
   updatePostsDocument(relativePath: String!, params: PostsMutation!): PostsDocument!
+  updateServicesDocument(relativePath: String!, params: ServicesMutation!): ServicesDocument!
   updateGlobalDocument(relativePath: String!, params: GlobalMutation!): GlobalDocument!
   updateAuthorsDocument(relativePath: String!, params: AuthorsMutation!): AuthorsDocument!
   updatePagesDocument(relativePath: String!, params: PagesMutation!): PagesDocument!
@@ -312,6 +348,7 @@ type Mutation {
 
 input DocumentMutation {
   posts: PostsMutation
+  services: ServicesMutation
   global: GlobalMutation
   authors: AuthorsMutation
   pages: PagesMutation
@@ -322,6 +359,17 @@ input PostsMutation {
   author: String
   date: String
   heroImg: String
+  excerpt: String
+  body: String
+}
+
+input ServicesMutation {
+  order: Int
+  title: String
+  author: String
+  date: String
+  heroImg: String
+  excerptImg: String
   excerpt: String
   body: String
 }

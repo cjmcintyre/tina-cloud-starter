@@ -4,6 +4,7 @@
     "resolveType": "multiCollectionDocumentList",
     "collections": [
       "posts",
+      "services",
       "global",
       "authors",
       "pages"
@@ -72,5 +73,19 @@
     "type": "PagesConnection",
     "resolveType": "collectionDocumentList",
     "collection": "pages"
+  },
+  "ServicesAuthorDocument": {
+    "type": "ServicesAuthorDocument",
+    "resolveType": "multiCollectionDocument"
+  },
+  "ServicesDocument": {
+    "type": "ServicesDocument",
+    "resolveType": "collectionDocument",
+    "collection": "services"
+  },
+  "ServicesConnection": {
+    "type": "ServicesConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "services"
   }
 }

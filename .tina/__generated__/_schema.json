@@ -79,6 +79,102 @@
       ]
     },
     {
+      "label": "Services",
+      "name": "services",
+      "path": "content/services",
+      "fields": [
+        {
+          "type": "number",
+          "label": "Order",
+          "name": "order",
+          "namespace": [
+            "services",
+            "order"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Title",
+          "name": "title",
+          "namespace": [
+            "services",
+            "title"
+          ]
+        },
+        {
+          "type": "reference",
+          "label": "Author",
+          "name": "author",
+          "collections": [
+            "authors"
+          ],
+          "namespace": [
+            "services",
+            "author"
+          ]
+        },
+        {
+          "type": "datetime",
+          "label": "Posted Date",
+          "name": "date",
+          "ui": {
+            "dateFormat": "MMMM DD YYYY",
+            "timeFormat": "hh:mm A"
+          },
+          "namespace": [
+            "services",
+            "date"
+          ]
+        },
+        {
+          "type": "image",
+          "name": "heroImg",
+          "label": "Hero Image",
+          "namespace": [
+            "services",
+            "heroImg"
+          ]
+        },
+        {
+          "type": "image",
+          "name": "excerptImg",
+          "label": "Excerpt Image",
+          "namespace": [
+            "services",
+            "excerptImg"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Excerpt",
+          "ui": {
+            "component": "textarea"
+          },
+          "name": "excerpt",
+          "namespace": [
+            "services",
+            "excerpt"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Body",
+          "ui": {
+            "component": "markdown"
+          },
+          "name": "body",
+          "isBody": true,
+          "namespace": [
+            "services",
+            "body"
+          ]
+        }
+      ],
+      "namespace": [
+        "services"
+      ]
+    },
+    {
       "label": "Global",
       "name": "global",
       "path": "content/global",
@@ -1383,7 +1479,16 @@
               "label": "Contact Us",
               "ui": {
                 "defaultItem": {
-                  "body": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede."
+                  "headline": "headline",
+                  "body": "body",
+                  "color": "primary",
+                  "image": {
+                    "imageTitle": "Headline",
+                    "image": {
+                      "src": "http://res.cloudinary.com/dyfo8zpbd/image/upload/v1632813018/Web_design_SVG_xbmjy9.svg",
+                      "alt": "default image"
+                    }
+                  }
                 }
               },
               "fields": [

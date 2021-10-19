@@ -65,6 +65,8 @@ export type Query = {
   getDocumentList: DocumentConnection;
   getPostsDocument: PostsDocument;
   getPostsList: PostsConnection;
+  getServicesDocument: ServicesDocument;
+  getServicesList: ServicesConnection;
   getGlobalDocument: GlobalDocument;
   getGlobalList: GlobalConnection;
   getAuthorsDocument: AuthorsDocument;
@@ -104,6 +106,19 @@ export type QueryGetPostsDocumentArgs = {
 
 
 export type QueryGetPostsListArgs = {
+  before?: Maybe<Scalars['String']>;
+  after?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryGetServicesDocumentArgs = {
+  relativePath?: Maybe<Scalars['String']>;
+};
+
+
+export type QueryGetServicesListArgs = {
   before?: Maybe<Scalars['String']>;
   after?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
@@ -183,7 +198,7 @@ export type CollectionDocumentsArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
-export type DocumentNode = PostsDocument | GlobalDocument | AuthorsDocument | PagesDocument;
+export type DocumentNode = PostsDocument | ServicesDocument | GlobalDocument | AuthorsDocument | PagesDocument;
 
 export type PostsAuthorDocument = AuthorsDocument;
 
@@ -218,6 +233,43 @@ export type PostsConnection = Connection & {
   pageInfo?: Maybe<PageInfo>;
   totalCount: Scalars['Int'];
   edges?: Maybe<Array<Maybe<PostsConnectionEdges>>>;
+};
+
+export type ServicesAuthorDocument = AuthorsDocument;
+
+export type Services = {
+  __typename?: 'Services';
+  order?: Maybe<Scalars['Int']>;
+  title?: Maybe<Scalars['String']>;
+  author?: Maybe<ServicesAuthorDocument>;
+  date?: Maybe<Scalars['String']>;
+  heroImg?: Maybe<Scalars['String']>;
+  excerptImg?: Maybe<Scalars['String']>;
+  excerpt?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['String']>;
+};
+
+export type ServicesDocument = Node & Document & {
+  __typename?: 'ServicesDocument';
+  id: Scalars['ID'];
+  sys: SystemInfo;
+  data: Services;
+  form: Scalars['JSON'];
+  values: Scalars['JSON'];
+  dataJSON: Scalars['JSON'];
+};
+
+export type ServicesConnectionEdges = {
+  __typename?: 'ServicesConnectionEdges';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<ServicesDocument>;
+};
+
+export type ServicesConnection = Connection & {
+  __typename?: 'ServicesConnection';
+  pageInfo?: Maybe<PageInfo>;
+  totalCount: Scalars['Int'];
+  edges?: Maybe<Array<Maybe<ServicesConnectionEdges>>>;
 };
 
 export type GlobalHeaderIcon = {
@@ -446,6 +498,7 @@ export type Mutation = {
   addPendingDocument: DocumentNode;
   updateDocument: DocumentNode;
   updatePostsDocument: PostsDocument;
+  updateServicesDocument: ServicesDocument;
   updateGlobalDocument: GlobalDocument;
   updateAuthorsDocument: AuthorsDocument;
   updatePagesDocument: PagesDocument;
@@ -472,6 +525,12 @@ export type MutationUpdatePostsDocumentArgs = {
 };
 
 
+export type MutationUpdateServicesDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: ServicesMutation;
+};
+
+
 export type MutationUpdateGlobalDocumentArgs = {
   relativePath: Scalars['String'];
   params: GlobalMutation;
@@ -491,6 +550,7 @@ export type MutationUpdatePagesDocumentArgs = {
 
 export type DocumentMutation = {
   posts?: Maybe<PostsMutation>;
+  services?: Maybe<ServicesMutation>;
   global?: Maybe<GlobalMutation>;
   authors?: Maybe<AuthorsMutation>;
   pages?: Maybe<PagesMutation>;
@@ -501,6 +561,17 @@ export type PostsMutation = {
   author?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['String']>;
   heroImg?: Maybe<Scalars['String']>;
+  excerpt?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['String']>;
+};
+
+export type ServicesMutation = {
+  order?: Maybe<Scalars['Int']>;
+  title?: Maybe<Scalars['String']>;
+  author?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['String']>;
+  heroImg?: Maybe<Scalars['String']>;
+  excerptImg?: Maybe<Scalars['String']>;
   excerpt?: Maybe<Scalars['String']>;
   body?: Maybe<Scalars['String']>;
 };
