@@ -11,7 +11,7 @@ declare global {
   interface Window { gtmInitialized?: any; }
 }
 
-const prod_url = 'www.foobar.digital';
+const prod_url = 'foobar.digital';
 
 export const Layout = ({ rawData = "", data = layoutData, children }) => {
 
