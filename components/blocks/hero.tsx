@@ -32,8 +32,8 @@ export const Hero = ({ data }) => {
             </h2>
           )}
           {data.headline && (
-            <h3
-              className={`w-full relative	mb-10 text-5xl font-extrabold tracking-normal leading-tight title-font`}
+            <h1
+              className={`w-full relative	mb-10 text-[14vw] sm:text-5xl font-extrabold tracking-normal leading-tight title-font`}
             >
               <span
                 className={`bg-clip-text text-transparent bg-gradient-to-r  ${
@@ -44,7 +44,7 @@ export const Hero = ({ data }) => {
               >
                 {data.headline}
               </span>
-            </h3>
+            </h1>
           )}
           {data.text && (
             <div

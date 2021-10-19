@@ -32,9 +32,9 @@ export const Service = ({ data }) => {
 
   return (
     <Section className="flex-1">
-      <Container className={`flex-1 max-w-4xl pb-2`} size="large">
-         <h2
-          className={`w-full relative	mb-8 text-3xl md:text-6xl  leading-tight font-extrabold tracking-normal text-left title-font`}
+      <Container className={`flex-1 max-w-4xl pb-2`} size="small">
+         <h1
+          className={`relative mb-8 text-[12vw] sm:text-5xl leading-tight font-extrabold tracking-normal text-left title-font`}
         >
            <span
             className={`bg-clip-text text-transparent bg-gradient-to-r ${
@@ -43,7 +43,7 @@ export const Service = ({ data }) => {
           >
             {data.title}
           </span>
-        </h2>
+        </h1>
 
       </Container>
       {data.heroImg && (
@@ -56,7 +56,7 @@ export const Service = ({ data }) => {
         </div>
       )}
       <Container className={`flex-1 max-w-4xl pt-4`} size="large">
-        <div className="prose dark:prose-dark  w-full max-w-none">
+        <div className="prose md:prose-lg dark:prose-dark  w-full max-w-none">
           <Markdown>{data.body}</Markdown>
         </div>
 
