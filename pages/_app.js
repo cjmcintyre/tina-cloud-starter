@@ -1,4 +1,5 @@
 import "../styles.css";
+import 'tailwindcss/tailwind.css'
 import dynamic from "next/dynamic";
 import { TinaEditProvider } from "tinacms/dist/edit-state";
 import { Layout } from "../components/layout";
@@ -38,11 +39,11 @@ const App = ({ Component, pageProps }) => {
               /**
                * Only allows documents to be created to the `Blog Posts` Collection
                */
-              filterCollections: (options) => {
+               /*filterCollections: (options) => {
                 return options.filter(
                   (option) => option.label === "Blog Posts"
                 );
-              },
+              }, */
             }}
             /**
              * Treat the Global collection as a global form
