@@ -14,14 +14,6 @@
       {
         "href": "services",
         "label": "Our services"
-      },
-      {
-        "href": "about",
-        "label": "About"
-      },
-      {
-        "href": "posts",
-        "label": "Blog"
       }
     ]
   },
