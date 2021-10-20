@@ -12,7 +12,7 @@ export default function HomePage(
 
   return (
     <Section >
-      <Container className="flex flex-wrap justify-evenly " size="default">
+      <Container className="flex flex-wrap justify-evenly " size="small">
         <Services data={services.sort((first, second) => first.node.values.order - second.node.values.order)} />
       </Container>
     </Section>
