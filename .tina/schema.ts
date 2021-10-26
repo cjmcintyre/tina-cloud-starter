@@ -567,6 +567,19 @@ export default defineSchema({
           name: "order",
         },
         {
+          type: "image",
+          name: "excerptImg",
+          label: "Excerpt Image",
+        },
+        {
+          type: "string",
+          label: "Excerpt",
+          ui: {
+            component: "textarea",
+          },
+          name: "excerpt",
+        },
+        {
           type: "string",
           label: "Title",
           name: "title",
