@@ -62,6 +62,19 @@
           "name": "order"
         },
         {
+          "type": "image",
+          "name": "excerptImg",
+          "label": "Excerpt Image"
+        },
+        {
+          "type": "string",
+          "label": "Excerpt",
+          "ui": {
+            "component": "textarea"
+          },
+          "name": "excerpt"
+        },
+        {
           "type": "string",
           "label": "Title",
           "name": "title"
@@ -87,19 +100,6 @@
           "type": "image",
           "name": "heroImg",
           "label": "Hero Image"
-        },
-        {
-          "type": "image",
-          "name": "excerptImg",
-          "label": "Excerpt Image"
-        },
-        {
-          "type": "string",
-          "label": "Excerpt",
-          "ui": {
-            "component": "textarea"
-          },
-          "name": "excerpt"
         },
         {
           "type": "string",
@@ -314,6 +314,29 @@
                   "type": "string",
                   "label": "Label",
                   "name": "label"
+                },
+                {
+                  "type": "object",
+                  "label": "Subpages",
+                  "name": "subpages",
+                  "list": true,
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "Link",
+                      "name": "href"
+                    },
+                    {
+                      "type": "string",
+                      "label": "Label",
+                      "name": "label"
+                    },
+                    {
+                      "type": "string",
+                      "label": "Description",
+                      "name": "description"
+                    }
+                  ]
                 }
               ]
             }

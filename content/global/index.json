@@ -8,12 +8,53 @@
     "color": "default",
     "nav": [
       {
-        "href": "",
+        "href": "home",
         "label": "Home"
       },
       {
+        "href": "about",
+        "label": "About"
+      },
+      {
         "href": "services",
-        "label": "Our services"
+        "label": "Services",
+        "subpages": [
+          {
+            "href": "services/mobile-application-development",
+            "label": "Mobile application development",
+            "description": "Native, hybrid or a web application we cover all devices"
+          },
+          {
+            "href": "services/website-development",
+            "label": "Website development",
+            "description": "Websites built with a focus on being fast, accessible and secure"
+          },
+          {
+            "href": "services/digital-business-strategy",
+            "label": "Digital business strategy",
+            "description": "Take a deep-dive into different digital strategies"
+          },
+          {
+            "href": "services/search-engine-optimisation",
+            "label": "Search engine optimisation",
+            "description": "Ensuring your website gets found when people are searching"
+          },
+          {
+            "href": "services/graphic-design",
+            "label": "Graphic design",
+            "description": "A picture can tell a thousand words, a design can tell even more"
+          },
+          {
+            "href": "services/website-design",
+            "label": "Website design",
+            "description": "Human centered design principles with a dash of UX and UI"
+          },
+          {
+            "href": "services/social-media-marketing",
+            "label": "Social media marketing",
+            "description": "Start being noticed in your social networks"
+          }
+        ]
       }
     ]
   },

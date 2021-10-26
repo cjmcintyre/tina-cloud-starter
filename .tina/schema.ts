@@ -670,6 +670,29 @@ export default defineSchema({
                   label: "Label",
                   name: "label",
                 },
+                {
+                  type: "object",
+                  label: "Subpages",
+                  name: "subpages",
+                  list: true,
+                  fields: [
+                    {
+                      type: "string",
+                      label: "Link",
+                      name: "href",
+                    },
+                    {
+                      type: "string",
+                      label: "Label",
+                      name: "label",
+                    },
+                    {
+                      type: "string",
+                      label: "Description",
+                      name: "description"
+                    },
+                  ],
+                }
               ],
             },
           ],
