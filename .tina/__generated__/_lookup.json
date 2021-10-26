@@ -61,7 +61,8 @@
       "content": "PagesBlocksContent",
       "testimonial": "PagesBlocksTestimonial",
       "images": "PagesBlocksImages",
-      "contact": "PagesBlocksContact"
+      "contact": "PagesBlocksContact",
+      "pricings": "PagesBlocksPricings"
     }
   },
   "PagesDocument": {
@@ -87,5 +88,37 @@
     "type": "ServicesConnection",
     "resolveType": "collectionDocumentList",
     "collection": "services"
+  },
+  "ServicesHeaderAuthorDocument": {
+    "type": "ServicesHeaderAuthorDocument",
+    "resolveType": "multiCollectionDocument"
+  },
+  "ServicesContentAuthorDocument": {
+    "type": "ServicesContentAuthorDocument",
+    "resolveType": "multiCollectionDocument"
+  },
+  "ServicesBlocks": {
+    "type": "ServicesBlocks",
+    "resolveType": "unionData",
+    "typeMap": {
+      "serviceContent": "ServicesBlocksServiceContent",
+      "pricings": "ServicesBlocksPricings"
+    }
+  },
+  "ServicesBlocksContentAuthorDocument": {
+    "type": "ServicesBlocksContentAuthorDocument",
+    "resolveType": "multiCollectionDocument"
+  },
+  "PagesBlocksContentAuthorDocument": {
+    "type": "PagesBlocksContentAuthorDocument",
+    "resolveType": "multiCollectionDocument"
+  },
+  "ServicesBlocksServiceContentAuthorDocument": {
+    "type": "ServicesBlocksServiceContentAuthorDocument",
+    "resolveType": "multiCollectionDocument"
+  },
+  "PagesBlocksServiceContentAuthorDocument": {
+    "type": "PagesBlocksServiceContentAuthorDocument",
+    "resolveType": "multiCollectionDocument"
   }
 }

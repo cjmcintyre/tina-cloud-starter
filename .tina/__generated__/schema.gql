@@ -117,12 +117,12 @@ union ServicesAuthorDocument = AuthorsDocument
 
 type Services {
   order: Int
+  excerptImg: String
+  excerpt: String
   title: String
   author: ServicesAuthorDocument
   date: String
   heroImg: String
-  excerptImg: String
-  excerpt: String
   body: String
 }
 
@@ -152,9 +152,16 @@ type GlobalHeaderIcon {
   name: String
 }
 
+type GlobalHeaderNavSubpages {
+  href: String
+  label: String
+  description: String
+}
+
 type GlobalHeaderNav {
   href: String
   label: String
+  subpages: [GlobalHeaderNavSubpages]
 }
 
 type GlobalHeader {
@@ -310,7 +317,18 @@ type PagesBlocksContact {
   image: PagesBlocksContactImage
 }
 
-union PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksContent | PagesBlocksTestimonial | PagesBlocksImages | PagesBlocksContact
+type PagesBlocksPricingsPricing {
+  title: String
+  price: Int
+  features: [String]
+  highlighted: Boolean
+}
+
+type PagesBlocksPricings {
+  pricing: [PagesBlocksPricingsPricing]
+}
+
+union PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksContent | PagesBlocksTestimonial | PagesBlocksImages | PagesBlocksContact | PagesBlocksPricings
 
 type Pages {
   blocks: [PagesBlocks]
@@ -365,12 +383,12 @@ input PostsMutation {
 
 input ServicesMutation {
   order: Int
+  excerptImg: String
+  excerpt: String
   title: String
   author: String
   date: String
   heroImg: String
-  excerptImg: String
-  excerpt: String
   body: String
 }
 
@@ -380,9 +398,16 @@ input GlobalHeaderIconMutation {
   name: String
 }
 
+input GlobalHeaderNavSubpagesMutation {
+  href: String
+  label: String
+  description: String
+}
+
 input GlobalHeaderNavMutation {
   href: String
   label: String
+  subpages: [GlobalHeaderNavSubpagesMutation]
 }
 
 input GlobalHeaderMutation {
@@ -498,6 +523,17 @@ input PagesBlocksContactMutation {
   image: PagesBlocksContactImageMutation
 }
 
+input PagesBlocksPricingsPricingMutation {
+  title: String
+  price: Int
+  features: [String]
+  highlighted: Boolean
+}
+
+input PagesBlocksPricingsMutation {
+  pricing: [PagesBlocksPricingsPricingMutation]
+}
+
 input PagesBlocksMutation {
   hero: PagesBlocksHeroMutation
   features: PagesBlocksFeaturesMutation
@@ -505,6 +541,7 @@ input PagesBlocksMutation {
   testimonial: PagesBlocksTestimonialMutation
   images: PagesBlocksImagesMutation
   contact: PagesBlocksContactMutation
+  pricings: PagesBlocksPricingsMutation
 }
 
 input PagesMutation {

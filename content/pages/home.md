@@ -1,7 +1,7 @@
 ---
 blocks:
   - tagline: ''
-    headline: Looking for help? Welcome.
+    headline: Looking for help? Welcome
     text: >-
       Situated in Canberra, but operating **remotely** across Australia.
 

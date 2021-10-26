@@ -240,12 +240,12 @@ export type ServicesAuthorDocument = AuthorsDocument;
 export type Services = {
   __typename?: 'Services';
   order?: Maybe<Scalars['Int']>;
+  excerptImg?: Maybe<Scalars['String']>;
+  excerpt?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   author?: Maybe<ServicesAuthorDocument>;
   date?: Maybe<Scalars['String']>;
   heroImg?: Maybe<Scalars['String']>;
-  excerptImg?: Maybe<Scalars['String']>;
-  excerpt?: Maybe<Scalars['String']>;
   body?: Maybe<Scalars['String']>;
 };
 
@@ -279,10 +279,18 @@ export type GlobalHeaderIcon = {
   name?: Maybe<Scalars['String']>;
 };
 
+export type GlobalHeaderNavSubpages = {
+  __typename?: 'GlobalHeaderNavSubpages';
+  href?: Maybe<Scalars['String']>;
+  label?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+};
+
 export type GlobalHeaderNav = {
   __typename?: 'GlobalHeaderNav';
   href?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
+  subpages?: Maybe<Array<Maybe<GlobalHeaderNavSubpages>>>;
 };
 
 export type GlobalHeader = {
@@ -463,7 +471,20 @@ export type PagesBlocksContact = {
   image?: Maybe<PagesBlocksContactImage>;
 };
 
-export type PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksContent | PagesBlocksTestimonial | PagesBlocksImages | PagesBlocksContact;
+export type PagesBlocksPricingsPricing = {
+  __typename?: 'PagesBlocksPricingsPricing';
+  title?: Maybe<Scalars['String']>;
+  price?: Maybe<Scalars['Int']>;
+  features?: Maybe<Array<Maybe<Scalars['String']>>>;
+  highlighted?: Maybe<Scalars['Boolean']>;
+};
+
+export type PagesBlocksPricings = {
+  __typename?: 'PagesBlocksPricings';
+  pricing?: Maybe<Array<Maybe<PagesBlocksPricingsPricing>>>;
+};
+
+export type PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksContent | PagesBlocksTestimonial | PagesBlocksImages | PagesBlocksContact | PagesBlocksPricings;
 
 export type Pages = {
   __typename?: 'Pages';
@@ -567,12 +588,12 @@ export type PostsMutation = {
 
 export type ServicesMutation = {
   order?: Maybe<Scalars['Int']>;
+  excerptImg?: Maybe<Scalars['String']>;
+  excerpt?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   author?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['String']>;
   heroImg?: Maybe<Scalars['String']>;
-  excerptImg?: Maybe<Scalars['String']>;
-  excerpt?: Maybe<Scalars['String']>;
   body?: Maybe<Scalars['String']>;
 };
 
@@ -582,9 +603,16 @@ export type GlobalHeaderIconMutation = {
   name?: Maybe<Scalars['String']>;
 };
 
+export type GlobalHeaderNavSubpagesMutation = {
+  href?: Maybe<Scalars['String']>;
+  label?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+};
+
 export type GlobalHeaderNavMutation = {
   href?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
+  subpages?: Maybe<Array<Maybe<GlobalHeaderNavSubpagesMutation>>>;
 };
 
 export type GlobalHeaderMutation = {
@@ -700,6 +728,17 @@ export type PagesBlocksContactMutation = {
   image?: Maybe<PagesBlocksContactImageMutation>;
 };
 
+export type PagesBlocksPricingsPricingMutation = {
+  title?: Maybe<Scalars['String']>;
+  price?: Maybe<Scalars['Int']>;
+  features?: Maybe<Array<Maybe<Scalars['String']>>>;
+  highlighted?: Maybe<Scalars['Boolean']>;
+};
+
+export type PagesBlocksPricingsMutation = {
+  pricing?: Maybe<Array<Maybe<PagesBlocksPricingsPricingMutation>>>;
+};
+
 export type PagesBlocksMutation = {
   hero?: Maybe<PagesBlocksHeroMutation>;
   features?: Maybe<PagesBlocksFeaturesMutation>;
@@ -707,6 +746,7 @@ export type PagesBlocksMutation = {
   testimonial?: Maybe<PagesBlocksTestimonialMutation>;
   images?: Maybe<PagesBlocksImagesMutation>;
   contact?: Maybe<PagesBlocksContactMutation>;
+  pricings?: Maybe<PagesBlocksPricingsMutation>;
 };
 
 export type PagesMutation = {

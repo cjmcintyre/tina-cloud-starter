@@ -78,6 +78,13 @@ export const getStaticProps = async ({ params }) => {
                   alt
                 }
               }
+              ... on PagesBlocksPricings {
+                pricing {
+                  title
+                  price
+                  features
+                }
+              }
             }
           }
         }

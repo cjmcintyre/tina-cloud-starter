@@ -1136,6 +1136,78 @@
                   ]
                 }
               ]
+            },
+            {
+              "name": "pricings",
+              "label": "Pricings",
+              "ui": {
+                "defaultItem": {
+                  "pricing": [
+                    {
+                      "title": "Title",
+                      "price": 77,
+                      "features": [
+                        "Feature 1",
+                        "Feature 2",
+                        "Feature 3"
+                      ]
+                    },
+                    {
+                      "title": "Title",
+                      "price": 77,
+                      "features": [
+                        "Feature 1",
+                        "Feature 2",
+                        "Feature 3"
+                      ]
+                    },
+                    {
+                      "title": "Title",
+                      "price": 77,
+                      "features": [
+                        "Feature 1",
+                        "Feature 2",
+                        "Feature 3"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "fields": [
+                {
+                  "type": "object",
+                  "label": "pricing",
+                  "name": "pricing",
+                  "list": true,
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "Title",
+                      "name": "title"
+                    },
+                    {
+                      "type": "number",
+                      "label": "Price",
+                      "name": "price"
+                    },
+                    {
+                      "type": "string",
+                      "label": "Features",
+                      "name": "features",
+                      "list": true,
+                      "ui": {
+                        "component": "tags"
+                      }
+                    },
+                    {
+                      "type": "boolean",
+                      "label": "Highlighted",
+                      "name": "highlighted",
+                      "description": "Enable this if you want to highlight the pricing field"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }

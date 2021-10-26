@@ -6,6 +6,7 @@ import layoutData from "../content/global/index.json";
 import { Theme } from "./theme";
 import { CookieConsent } from '@sandstreamdev/cookieconsent';
 import '@sandstreamdev/cookieconsent/build/cookieconsent.min.css';
+import AOS from 'aos';
 
 declare global {
   interface Window { gtmInitialized?: any; }
@@ -153,6 +154,17 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
       // reload page to get rid of GTM
       location.reload();
     }
+
+    function initilizeAOS() {
+      AOS.init({
+        once: true,
+        delay: 50,
+        duration: 500,
+        easing: 'ease-in-out',
+      });
+    }
+
+    initilizeAOS()
   }, []);
 
   return (
@@ -211,6 +223,8 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
             />
           </>
         )}
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></link>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       </Head>
       <Theme data={data?.theme}>
         <div
@@ -250,6 +264,11 @@ export const layoutQueryFragment = `
         nav {
           href
           label
+          subpages {
+            href
+            label
+            description
+          }
         }
       }
       footer {

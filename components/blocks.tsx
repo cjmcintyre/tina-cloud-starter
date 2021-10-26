@@ -1,13 +1,15 @@
 import React from "react";
 import type { Pages } from "../.tina/__generated__/types";
+import type { Services } from "../.tina/__generated__/types";
 import { Content } from "./blocks/content";
 import { Features } from "./blocks/features";
 import { Hero } from "./blocks/hero";
 import { Testimonial } from "./blocks/testimonial";
 import { Images }  from "./blocks/images";
 import { Contact } from "./blocks/contact";
+import { Pricings } from "./blocks/pricings";
 
-export const Blocks = (props: Pages) => {
+export const Blocks = (props: Pages, Services) => {
   return (
     <>
       {props.blocks
@@ -47,6 +49,12 @@ export const Blocks = (props: Pages) => {
                 return (
                   <React.Fragment key={i + block.__typename}>
                     <Contact data={block} />
+                  </React.Fragment>
+                )
+              case "PagesBlocksPricings":
+                return (
+                  <React.Fragment key={i + block.__typename}>
+                    <Pricings data={block} />
                   </React.Fragment>
                 )
               default:

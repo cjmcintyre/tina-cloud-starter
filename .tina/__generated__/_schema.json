@@ -93,6 +93,27 @@
           ]
         },
         {
+          "type": "image",
+          "name": "excerptImg",
+          "label": "Excerpt Image",
+          "namespace": [
+            "services",
+            "excerptImg"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Excerpt",
+          "ui": {
+            "component": "textarea"
+          },
+          "name": "excerpt",
+          "namespace": [
+            "services",
+            "excerpt"
+          ]
+        },
+        {
           "type": "string",
           "label": "Title",
           "name": "title",
@@ -133,27 +154,6 @@
           "namespace": [
             "services",
             "heroImg"
-          ]
-        },
-        {
-          "type": "image",
-          "name": "excerptImg",
-          "label": "Excerpt Image",
-          "namespace": [
-            "services",
-            "excerptImg"
-          ]
-        },
-        {
-          "type": "string",
-          "label": "Excerpt",
-          "ui": {
-            "component": "textarea"
-          },
-          "name": "excerpt",
-          "namespace": [
-            "services",
-            "excerpt"
           ]
         },
         {
@@ -415,6 +415,56 @@
                     "header",
                     "nav",
                     "label"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "label": "Subpages",
+                  "name": "subpages",
+                  "list": true,
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "Link",
+                      "name": "href",
+                      "namespace": [
+                        "global",
+                        "header",
+                        "nav",
+                        "subpages",
+                        "href"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Label",
+                      "name": "label",
+                      "namespace": [
+                        "global",
+                        "header",
+                        "nav",
+                        "subpages",
+                        "label"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Description",
+                      "name": "description",
+                      "namespace": [
+                        "global",
+                        "header",
+                        "nav",
+                        "subpages",
+                        "description"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "header",
+                    "nav",
+                    "subpages"
                   ]
                 }
               ],
@@ -1581,6 +1631,117 @@
                 "pages",
                 "blocks",
                 "contact"
+              ]
+            },
+            {
+              "name": "pricings",
+              "label": "Pricings",
+              "ui": {
+                "defaultItem": {
+                  "pricing": [
+                    {
+                      "title": "Title",
+                      "price": 77,
+                      "features": [
+                        "Feature 1",
+                        "Feature 2",
+                        "Feature 3"
+                      ]
+                    },
+                    {
+                      "title": "Title",
+                      "price": 77,
+                      "features": [
+                        "Feature 1",
+                        "Feature 2",
+                        "Feature 3"
+                      ]
+                    },
+                    {
+                      "title": "Title",
+                      "price": 77,
+                      "features": [
+                        "Feature 1",
+                        "Feature 2",
+                        "Feature 3"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "fields": [
+                {
+                  "type": "object",
+                  "label": "pricing",
+                  "name": "pricing",
+                  "list": true,
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "Title",
+                      "name": "title",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "pricings",
+                        "pricing",
+                        "title"
+                      ]
+                    },
+                    {
+                      "type": "number",
+                      "label": "Price",
+                      "name": "price",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "pricings",
+                        "pricing",
+                        "price"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Features",
+                      "name": "features",
+                      "list": true,
+                      "ui": {
+                        "component": "tags"
+                      },
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "pricings",
+                        "pricing",
+                        "features"
+                      ]
+                    },
+                    {
+                      "type": "boolean",
+                      "label": "Highlighted",
+                      "name": "highlighted",
+                      "description": "Enable this if you want to highlight the pricing field",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "pricings",
+                        "pricing",
+                        "highlighted"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "pricings",
+                    "pricing"
+                  ]
+                }
+              ],
+              "namespace": [
+                "pages",
+                "blocks",
+                "pricings"
               ]
             }
           ],

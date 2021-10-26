@@ -3,11 +3,15 @@ import { Section } from "../section";
 import { Container } from "../container";
 import { Icon } from "../icon";
 
-export const Feature = ({ featuresColor, data }) => {
+export const Feature = ({ featuresColor, data, index }) => {
   return (
     <div
       className="flex-1 flex flex-col gap-6 text-center items-center lg:items-start lg:text-left max-w-xl mx-auto"
       style={{ flexBasis: "16rem" }}
+      data-aos={'fade-up'}
+      data-aos-delay={index * 500}
+      data-aos-offset={300}
+      data-aos-duration={600}
     >
       {data.icon && <Icon parentColor={featuresColor} data={data.icon} />}
       {data.title && (
@@ -30,7 +34,7 @@ export const Features = ({ data }) => {
       >
         {data.items &&
           data.items.map(function (block, i) {
-            return <Feature featuresColor={data.color} key={i} data={block} />;
+            return <Feature featuresColor={data.color} key={i} index={i} data={block}/>;
           })}
       </Container>
     </Section>

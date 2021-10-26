@@ -315,6 +315,61 @@ const contentBlockSchema: TinaTemplate = {
   ],
 };
 
+const defaultPrice = {
+  title: "Title",
+  price: 77,
+  features: [
+    "Feature 1",
+    "Feature 2",
+    "Feature 3"
+  ],
+};
+
+const pricingsBlockSchema: TinaTemplate = {
+  name: "pricings",
+  label: "Pricings",
+  ui: {
+    defaultItem: {
+      pricing: [defaultPrice, defaultPrice, defaultPrice],
+    },
+  },
+  fields: [
+    {
+      type: "object",
+      label: "pricing",
+      name: "pricing",
+      list: true,
+      fields: [
+        {
+          type: "string",
+          label: "Title",
+          name: "title",
+        },
+        {
+          type: "number",
+          label: "Price",
+          name: "price",
+        },
+        {
+          type: "string",
+          label: "Features",
+          name: "features",
+          list: true,
+          ui: {
+            component: "tags",
+          },
+        },
+        {
+          type: "boolean",
+          label: "Highlighted",
+          name: "highlighted",
+          description: "Enable this if you want to highlight the pricing field"
+        }
+      ]
+    },
+    
+  ],
+};
 
 const contactBlockSchema: TinaTemplate = {
   name: "contact",
@@ -605,19 +660,6 @@ export default defineSchema({
           label: "Hero Image",
         },
         {
-          type: "image",
-          name: "excerptImg",
-          label: "Excerpt Image",
-        },
-        {
-          type: "string",
-          label: "Excerpt",
-          ui: {
-            component: "textarea",
-          },
-          name: "excerpt",
-        },
-        {
           type: "string",
           label: "Body",
           ui: {
@@ -887,6 +929,7 @@ export default defineSchema({
             testimonialBlockSchema,
             imageBlockSchema,
             contactBlockSchema,
+            pricingsBlockSchema
           ],
         },
       ],

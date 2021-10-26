@@ -34,7 +34,11 @@ export const Services = ({ data }) => {
 
         return (
           <div className="p-2 group" key={service.sys.filename}>
-            <div className="max-w-sm rounded overflow-hidden shadow-sm transition-all duration-250 ease-out hover:shadow-lg bg-white h-full">
+            <div className="max-w-sm rounded overflow-hidden shadow-sm transition-all duration-250 ease-out hover:shadow-lg bg-white h-full"     
+                 data-aos={'fade-up'}
+                 data-aos-delay={1 * 100}
+                 data-aos-offset={300}
+                 data-aos-duration={600}>
               <img className="w-full h-72 p-6" src={service.values.excerptImg}></img>
 
               <div className="px-6 py-4">
