@@ -10,10 +10,11 @@ import useOutsideClick from "./hooks/useOutsideClick";
 export const Header = ({ data }) => {
   const isMobile = useMediaQuery("(max-width:774px)");
   const theme = React.useContext(ThemeContext);
-  
+
   let [isOpen, setIsOpen] = useState(false);
+  const [expandedNavContent, setExpandedNavContent] = useState([]);
   const ref = useRef();
- 
+
   useOutsideClick(ref, () => {
     setIsOpen(false);
   });
@@ -49,12 +50,15 @@ export const Header = ({ data }) => {
     yellow: "border-b-3 border-yellow-300 dark:border-yellow-600",
   };
 
+  const activeChevron = {
+    active: "rotate-180",
+  }
   const router = useRouter();
 
   const toggle = () => setIsOpen(!isOpen);
-  
+
   return (
-    <div className={`bg-gradient-to-b ${headerColorCss}`} ref={ref}>
+    <div className={`bg-gradient-to-b ${headerColorCss}`} ref={ref} onMouseLeave={() => setExpandedNavContent([])}>
       <Container className="py-0 relative z-10 max-w-8xl">
         <div className="flex items-center justify-between">
           <h4 className="select-none text-lg font-bold tracking-tight my-4 transition duration-150 ease-out transform">
@@ -90,23 +94,52 @@ export const Header = ({ data }) => {
                   return (
                     <li
                       key={`${item.label}-${i}`}
-                      className={activeItem ? activeItemClasses[theme.color] : ""}
+                      className={`flex group hover:cursor-pointer ${activeItem ? activeItemClasses[theme.color] : ""}`}
+                      onMouseEnter={item.subpages ? () => setExpandedNavContent(item.subpages) : null}
                     >
-                      <Link href={`/${item.href || "home"}`}>
-                        <a className="select-none	text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-8">
+                      <Link href={`/${item.href || "home"}`} passHref>
+                        <a
+                          className="flex-nowrap group-hover:cursor-pointer select-none	text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 group-hover:opacity-100 py-8">
                           {item.label}
                         </a>
                       </Link>
+                      {item.subpages ? <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 self-center transition duration-350 ease-in-out opacity-70 group-hover:opacity-100 group-hover:cursor-pointer ${expandedNavContent.length ? activeChevron.active : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17 13l-5 5m0 0l-5-5m5 5V6" />
+                      </svg> : ''}
                     </li>
                   );
                 })}
             </ul>
           }
         </div>
+
+        {expandedNavContent.length > 0 ?
+          <div className="grid grid-cols-3 gap2 mt-2 border-b-2" >
+
+            {expandedNavContent.map((item, id) => {
+              const route = router.asPath === "/" ? "home" : router.asPath || "home";
+              const href = item.href || "home";
+              const activeItem = route.includes(href);
+              return (
+                <Link href={`/${item.href || "home"}`} passHref>
+                  <div className={`py-2 px-2 mx-2 group hover:cursor-pointer ${activeItem ? activeItemClasses[theme.color] : "border-2 border-transparent hover:border-blue-600 hover:border-opacity-30"}  `}>
+
+
+                    <a tabIndex={0} className={`select-none text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 group-focus-within: group-hover:opacity-100 group-hover:underline ${activeItem ? "opacity-100" : ""}`}>
+                      {item.label}
+                    </a>
+
+                    <p className={`select-none text-xs text-gray-400 group-hover:text-black`}>{item.description}</p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+          :
+          ''}
         <div
-          className={`absolute h-1 bg-gradient-to-r from-transparent ${
-            data.color === "primary" ? `via-white` : `via-black dark:via-white`
-          } to-transparent bottom-0 left-4 right-4 -z-1 opacity-5`}
+          className={`absolute h-1 bg-gradient-to-r from-transparent ${data.color === "primary" ? `via-white` : `via-black dark:via-white`
+            } to-transparent bottom-0 left-4 right-4 -z-1 opacity-5`}
         ></div>
         {isMobile && isOpen ?
           <ul className=" traflex-auto flex-col text-center" >
@@ -121,7 +154,7 @@ export const Header = ({ data }) => {
                     key={`${item.label}-${i}`}
                     className={`flex ${activeItem ? activeItemClasses[theme.color] : ""} `}
                   >
-                    <Link href={`/${item.href || "home"}`}>
+                    <Link href={`/${item.href || "home"}`} passHref>
                       <a className="w-full select-none text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-8">
                         {item.label}
                       </a>
