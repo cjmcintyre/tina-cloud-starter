@@ -32,8 +32,6 @@ interface Node {
 interface Document {
   sys: SystemInfo
   id: ID!
-  form: JSON!
-  values: JSON!
 }
 
 """A relay-compliant pagination connection"""
@@ -47,9 +45,6 @@ type Query {
   node(id: String): Node!
   getDocument(collection: String, relativePath: String): DocumentNode!
   getDocumentList(before: String, after: String, first: Int, last: Int): DocumentConnection!
-  getDocumentFields: JSON!
-  getDocsDocument(relativePath: String): DocsDocument!
-  getDocsList(before: String, after: String, first: Int, last: Int): DocsConnection!
   getPostsDocument(relativePath: String): PostsDocument!
   getPostsList(before: String, after: String, first: Int, last: Int): PostsConnection!
   getServicesDocument(relativePath: String): ServicesDocument!
@@ -85,33 +80,7 @@ type Collection {
   documents(before: String, after: String, first: Int, last: Int): DocumentConnection!
 }
 
-union DocumentNode = DocsDocument | PostsDocument | ServicesDocument | GlobalDocument | AuthorsDocument | PagesDocument
-
-type Docs {
-  title: String
-  slug: String
-  body: JSON
-}
-
-type DocsDocument implements Node & Document {
-  id: ID!
-  sys: SystemInfo!
-  data: Docs!
-  form: JSON!
-  values: JSON!
-  dataJSON: JSON!
-}
-
-type DocsConnectionEdges {
-  cursor: String
-  node: DocsDocument
-}
-
-type DocsConnection implements Connection {
-  pageInfo: PageInfo
-  totalCount: Int!
-  edges: [DocsConnectionEdges]
-}
+union DocumentNode = PostsDocument | ServicesDocument | GlobalDocument | AuthorsDocument | PagesDocument
 
 union PostsAuthorDocument = AuthorsDocument
 
@@ -388,34 +357,19 @@ type PagesConnection implements Connection {
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
-  createDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
-  updateDocsDocument(relativePath: String!, params: DocsMutation!): DocsDocument!
-  createDocsDocument(relativePath: String!, params: DocsMutation!): DocsDocument!
   updatePostsDocument(relativePath: String!, params: PostsMutation!): PostsDocument!
-  createPostsDocument(relativePath: String!, params: PostsMutation!): PostsDocument!
   updateServicesDocument(relativePath: String!, params: ServicesMutation!): ServicesDocument!
-  createServicesDocument(relativePath: String!, params: ServicesMutation!): ServicesDocument!
   updateGlobalDocument(relativePath: String!, params: GlobalMutation!): GlobalDocument!
-  createGlobalDocument(relativePath: String!, params: GlobalMutation!): GlobalDocument!
   updateAuthorsDocument(relativePath: String!, params: AuthorsMutation!): AuthorsDocument!
-  createAuthorsDocument(relativePath: String!, params: AuthorsMutation!): AuthorsDocument!
   updatePagesDocument(relativePath: String!, params: PagesMutation!): PagesDocument!
-  createPagesDocument(relativePath: String!, params: PagesMutation!): PagesDocument!
 }
 
 input DocumentMutation {
-  docs: DocsMutation
   posts: PostsMutation
   services: ServicesMutation
   global: GlobalMutation
   authors: AuthorsMutation
   pages: PagesMutation
-}
-
-input DocsMutation {
-  title: String
-  slug: String
-  body: JSON
 }
 
 input PostsMutation {

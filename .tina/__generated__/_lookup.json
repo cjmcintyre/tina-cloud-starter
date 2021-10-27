@@ -3,7 +3,6 @@
     "type": "DocumentConnection",
     "resolveType": "multiCollectionDocumentList",
     "collections": [
-      "docs",
       "posts",
       "services",
       "global",
@@ -17,22 +16,16 @@
   },
   "DocumentNode": {
     "type": "DocumentNode",
-    "resolveType": "multiCollectionDocument",
-    "createDocument": "create",
-    "updateDocument": "update"
+    "resolveType": "multiCollectionDocument"
   },
   "PostsAuthorDocument": {
     "type": "PostsAuthorDocument",
-    "resolveType": "multiCollectionDocument",
-    "createDocument": "create",
-    "updateDocument": "update"
+    "resolveType": "multiCollectionDocument"
   },
   "PostsDocument": {
     "type": "PostsDocument",
     "resolveType": "collectionDocument",
-    "collection": "posts",
-    "createPostsDocument": "create",
-    "updatePostsDocument": "update"
+    "collection": "posts"
   },
   "PostsConnection": {
     "type": "PostsConnection",
@@ -42,9 +35,7 @@
   "GlobalDocument": {
     "type": "GlobalDocument",
     "resolveType": "collectionDocument",
-    "collection": "global",
-    "createGlobalDocument": "create",
-    "updateGlobalDocument": "update"
+    "collection": "global"
   },
   "GlobalConnection": {
     "type": "GlobalConnection",
@@ -54,9 +45,7 @@
   "AuthorsDocument": {
     "type": "AuthorsDocument",
     "resolveType": "collectionDocument",
-    "collection": "authors",
-    "createAuthorsDocument": "create",
-    "updateAuthorsDocument": "update"
+    "collection": "authors"
   },
   "AuthorsConnection": {
     "type": "AuthorsConnection",
@@ -79,9 +68,7 @@
   "PagesDocument": {
     "type": "PagesDocument",
     "resolveType": "collectionDocument",
-    "collection": "pages",
-    "createPagesDocument": "create",
-    "updatePagesDocument": "update"
+    "collection": "pages"
   },
   "PagesConnection": {
     "type": "PagesConnection",
@@ -90,16 +77,12 @@
   },
   "ServicesAuthorDocument": {
     "type": "ServicesAuthorDocument",
-    "resolveType": "multiCollectionDocument",
-    "createDocument": "create",
-    "updateDocument": "update"
+    "resolveType": "multiCollectionDocument"
   },
   "ServicesDocument": {
     "type": "ServicesDocument",
     "resolveType": "collectionDocument",
-    "collection": "services",
-    "createServicesDocument": "create",
-    "updateServicesDocument": "update"
+    "collection": "services"
   },
   "ServicesConnection": {
     "type": "ServicesConnection",
@@ -137,17 +120,5 @@
   "PagesBlocksServiceContentAuthorDocument": {
     "type": "PagesBlocksServiceContentAuthorDocument",
     "resolveType": "multiCollectionDocument"
-  },
-  "DocsDocument": {
-    "type": "DocsDocument",
-    "resolveType": "collectionDocument",
-    "collection": "docs",
-    "createDocsDocument": "create",
-    "updateDocsDocument": "update"
-  },
-  "DocsConnection": {
-    "type": "DocsConnection",
-    "resolveType": "collectionDocumentList",
-    "collection": "docs"
   }
 }

@@ -49,8 +49,6 @@ export type Node = {
 export type Document = {
   sys?: Maybe<SystemInfo>;
   id: Scalars['ID'];
-  form: Scalars['JSON'];
-  values: Scalars['JSON'];
 };
 
 /** A relay-compliant pagination connection */
@@ -65,9 +63,6 @@ export type Query = {
   node: Node;
   getDocument: DocumentNode;
   getDocumentList: DocumentConnection;
-  getDocumentFields: Scalars['JSON'];
-  getDocsDocument: DocsDocument;
-  getDocsList: DocsConnection;
   getPostsDocument: PostsDocument;
   getPostsList: PostsConnection;
   getServicesDocument: ServicesDocument;
@@ -98,19 +93,6 @@ export type QueryGetDocumentArgs = {
 
 
 export type QueryGetDocumentListArgs = {
-  before?: Maybe<Scalars['String']>;
-  after?: Maybe<Scalars['String']>;
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryGetDocsDocumentArgs = {
-  relativePath?: Maybe<Scalars['String']>;
-};
-
-
-export type QueryGetDocsListArgs = {
   before?: Maybe<Scalars['String']>;
   after?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
@@ -216,37 +198,7 @@ export type CollectionDocumentsArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
-export type DocumentNode = DocsDocument | PostsDocument | ServicesDocument | GlobalDocument | AuthorsDocument | PagesDocument;
-
-export type Docs = {
-  __typename?: 'Docs';
-  title?: Maybe<Scalars['String']>;
-  slug?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['JSON']>;
-};
-
-export type DocsDocument = Node & Document & {
-  __typename?: 'DocsDocument';
-  id: Scalars['ID'];
-  sys: SystemInfo;
-  data: Docs;
-  form: Scalars['JSON'];
-  values: Scalars['JSON'];
-  dataJSON: Scalars['JSON'];
-};
-
-export type DocsConnectionEdges = {
-  __typename?: 'DocsConnectionEdges';
-  cursor?: Maybe<Scalars['String']>;
-  node?: Maybe<DocsDocument>;
-};
-
-export type DocsConnection = Connection & {
-  __typename?: 'DocsConnection';
-  pageInfo?: Maybe<PageInfo>;
-  totalCount: Scalars['Int'];
-  edges?: Maybe<Array<Maybe<DocsConnectionEdges>>>;
-};
+export type DocumentNode = PostsDocument | ServicesDocument | GlobalDocument | AuthorsDocument | PagesDocument;
 
 export type PostsAuthorDocument = AuthorsDocument;
 
@@ -566,19 +518,11 @@ export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
   updateDocument: DocumentNode;
-  createDocument: DocumentNode;
-  updateDocsDocument: DocsDocument;
-  createDocsDocument: DocsDocument;
   updatePostsDocument: PostsDocument;
-  createPostsDocument: PostsDocument;
   updateServicesDocument: ServicesDocument;
-  createServicesDocument: ServicesDocument;
   updateGlobalDocument: GlobalDocument;
-  createGlobalDocument: GlobalDocument;
   updateAuthorsDocument: AuthorsDocument;
-  createAuthorsDocument: AuthorsDocument;
   updatePagesDocument: PagesDocument;
-  createPagesDocument: PagesDocument;
 };
 
 
@@ -596,32 +540,7 @@ export type MutationUpdateDocumentArgs = {
 };
 
 
-export type MutationCreateDocumentArgs = {
-  collection: Scalars['String'];
-  relativePath: Scalars['String'];
-  params: DocumentMutation;
-};
-
-
-export type MutationUpdateDocsDocumentArgs = {
-  relativePath: Scalars['String'];
-  params: DocsMutation;
-};
-
-
-export type MutationCreateDocsDocumentArgs = {
-  relativePath: Scalars['String'];
-  params: DocsMutation;
-};
-
-
 export type MutationUpdatePostsDocumentArgs = {
-  relativePath: Scalars['String'];
-  params: PostsMutation;
-};
-
-
-export type MutationCreatePostsDocumentArgs = {
   relativePath: Scalars['String'];
   params: PostsMutation;
 };
@@ -633,19 +552,7 @@ export type MutationUpdateServicesDocumentArgs = {
 };
 
 
-export type MutationCreateServicesDocumentArgs = {
-  relativePath: Scalars['String'];
-  params: ServicesMutation;
-};
-
-
 export type MutationUpdateGlobalDocumentArgs = {
-  relativePath: Scalars['String'];
-  params: GlobalMutation;
-};
-
-
-export type MutationCreateGlobalDocumentArgs = {
   relativePath: Scalars['String'];
   params: GlobalMutation;
 };
@@ -657,36 +564,17 @@ export type MutationUpdateAuthorsDocumentArgs = {
 };
 
 
-export type MutationCreateAuthorsDocumentArgs = {
-  relativePath: Scalars['String'];
-  params: AuthorsMutation;
-};
-
-
 export type MutationUpdatePagesDocumentArgs = {
   relativePath: Scalars['String'];
   params: PagesMutation;
 };
 
-
-export type MutationCreatePagesDocumentArgs = {
-  relativePath: Scalars['String'];
-  params: PagesMutation;
-};
-
 export type DocumentMutation = {
-  docs?: Maybe<DocsMutation>;
   posts?: Maybe<PostsMutation>;
   services?: Maybe<ServicesMutation>;
   global?: Maybe<GlobalMutation>;
   authors?: Maybe<AuthorsMutation>;
   pages?: Maybe<PagesMutation>;
-};
-
-export type DocsMutation = {
-  title?: Maybe<Scalars['String']>;
-  slug?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['JSON']>;
 };
 
 export type PostsMutation = {
